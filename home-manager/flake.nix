@@ -28,8 +28,8 @@
             nixpkgs.config = config;
             nixpkgs.overlays = overlays;
             imports = [
-              ./modules/home-manager.nix
               ./modules/nixos-desktop.nix
+              ./modules/home-manager.nix
               ./modules/emacs.nix
               ./modules/xmonad.nix
               ./modules/zsh.nix
