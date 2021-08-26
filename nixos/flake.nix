@@ -25,13 +25,22 @@
         nixos-desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./configuration.nix
+            ./hosts/nixos-desktop/configuration.nix
             # { nixpkgs.overlays = [ emacs.overlay ]; }
+          ];
+        };
+
+        nixos-laptop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/nixos-laptop/configuration.nix
           ];
         };
       };
 
       nixos-desktop =
         self.nixosConfigurations.nixos-desktop.config.system.build.toplevel;
+      nixos-laptop =
+        self.nixosConfigurations.nixos-laptop.config.system.build.toplevel;
     };
 }

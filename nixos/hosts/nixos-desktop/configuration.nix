@@ -29,7 +29,7 @@
   };
   services.xserver.xkbOptions = "ctrl:nocaps";
 
-  # Localhost
+  # nginx server
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   services.nginx = {
@@ -46,6 +46,7 @@
     };
   };
 
+  # Php module for nginx
   services.phpfpm.pools.mypool = {
     user = "nobody";
     settings = {
@@ -73,6 +74,7 @@
     allowUnfree = true; # Allow non open source packages
   };
 
+  # Enable experimental flakes
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
@@ -80,6 +82,7 @@
   };
   system.stateVersion = "21.11";
 
+  # Default system packages
   environment.systemPackages = with pkgs; [
     home-manager
     vim
@@ -93,6 +96,7 @@
     htop
   ];
 
+  # Default system fonts
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [ source-code-pro ];
@@ -105,7 +109,6 @@
     autosuggestions.enable = true;
     enableCompletion = true;
   };
-
   users.extraUsers.root = { shell = pkgs.zsh; };
 
   # Remove generations older than 30 days
