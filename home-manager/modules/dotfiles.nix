@@ -10,4 +10,5 @@
   xdg.configFile."shell".source = config/shell;
   xdg.configFile."vim".source = config/vim;
   xdg.configFile."x11".source = config/x11;
+  xdg.configFile."alacritty".source = config/alacritty;
 }

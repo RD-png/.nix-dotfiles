@@ -15,16 +15,20 @@
   outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, ... }:
     let
       system = "x86_64-linux";
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+      };
 
     in {
 
-      nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
-          # { nixpkgs.overlays = [ emacs.overlay ]; }
-        ];
+      nixosConfigurations = {
+        nixos-desktop = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./configuration.nix
+            # { nixpkgs.overlays = [ emacs.overlay ]; }
+          ];
+        };
       };
 
       nixos-desktop =
