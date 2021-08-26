@@ -1,0 +1,11 @@
+* Dotfiles
+
+1. Install nix iso
+2. Mount system to /mnt
+3. Cd to /mnt/ (what will be ~/)
+4. Run (git clone https://github.com/RD-png/.nix-dotfiles)
+5. cd .nix-dotfiles and run the nix-shell to use the shell.nix file
+6. Run bash install.sh nixos-desktop (or any host in the hosts folder)
+7. Run home-manager switch
+8. Run nixos-rebuild switch --flake '/etc/nixos#nixos-desktop' --upgrade
+   (Replace nixos-desktop with the host chosen from the previos step)

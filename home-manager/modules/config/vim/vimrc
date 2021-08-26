@@ -1,0 +1,21 @@
+syntax on
+
+set tabstop=2
+
+set shiftwidth=2
+
+set expandtab
+
+set ai
+
+set number
+
+set hlsearch
+
+set ruler
+
+set viminfo+=n~/.cache/vim/viminfo
+
+colorscheme peachpuff
+
+highlight Comment ctermfg=green

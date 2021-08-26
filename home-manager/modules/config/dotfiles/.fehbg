@@ -1,0 +1,2 @@
+#!/bin/sh
+/root/.nix-profile/bin/feh --no-fehbg --bg-scale '/root/.config/xmonad/xpm/nfv.jpg'
