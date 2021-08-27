@@ -30,6 +30,7 @@
   services.xserver.xkbOptions = "ctrl:nocaps";
 
   # nginx server
+  networking.hostName = "nixos-laptop";
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
   services.nginx = {
