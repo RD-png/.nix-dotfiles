@@ -26,6 +26,7 @@
           inherit system;
           modules = [
             ./hosts/nixos-desktop/configuration.nix
+            ./configuration.nix
             # { nixpkgs.overlays = [ emacs.overlay ]; }
           ];
         };
@@ -34,6 +35,7 @@
           inherit system;
           modules = [
             ./hosts/nixos-laptop/configuration.nix
+            ./configuration.nix
           ];
         };
       };
