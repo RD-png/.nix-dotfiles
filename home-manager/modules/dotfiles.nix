@@ -1,8 +1,7 @@
 { pkgs, ... }: {
   # General /home dotfiles
-  home.file.".npmrc".source = config/dotfiles/.npmrc;
-  home.file.".fehbg".source = config/dotfiles/.fehbg;
-  home.file.".nix-channels".source = config/dotfiles/.nix-channels;
+  home.file.".npmrc".source = config/dotfiles/npmrc;
+  home.file.".nix-channels".source = config/dotfiles/nix-channels;
   home.file.".zprofile".source = config/shell/profile;
 
   # Config files
