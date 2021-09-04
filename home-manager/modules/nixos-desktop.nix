@@ -9,10 +9,14 @@
     gcc
     nodejs
     nodePackages.npm
+    # nodePackages.vls
+    nodePackages.typescript-language-server
+    nodePackages.vls
+    nodePackages."@vue/cli"
     php
     haskell-language-server
     ghc
-    python-language-server
+    python38Packages.python-language-server
     python39Full
     python39Packages.pylint
     nixfmt
