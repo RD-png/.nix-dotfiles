@@ -28,3 +28,4 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Show dot / hidden files
 _comp_options+=(globdots)
+eval "$(direnv hook zsh)"

@@ -15,6 +15,7 @@
     php
     haskell-language-server
     ghc
+    postman
     python39Packages.python-lsp-server
     python39Full
     python39Packages.setuptools

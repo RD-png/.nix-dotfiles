@@ -7,6 +7,7 @@
   services.xserver.enable = true;
   services.xserver.autorun = false;
   services.xserver.exportConfiguration = true;
+  services.lorri.enable = true;
   services.xserver.displayManager.startx.enable = true;
   services.xserver.displayManager.defaultSession = "none+xmonad";
   services.xserver.windowManager = {
