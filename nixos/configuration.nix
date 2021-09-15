@@ -18,36 +18,35 @@
   };
   services.xserver.xkbOptions = "ctrl:nocaps";
 
-  # nginx server
+  # apache server
   networking.networkmanager.enable = true;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  services.nginx = {
+  services.httpd = {
     enable = true;
-    virtualHosts."ryan-local.com" = {
-      root = "/var/htdocs/";
-      extraConfig = ''
-        autoindex on;
-      '';
-      locations."~ .php$".extraConfig = ''
-        fastcgi_pass  unix:${config.services.phpfpm.pools.mypool.socket};
-        fastcgi_index index.php;
-      '';
-    };
-  };
+    enablePHP = true;
+    adminAddr = "localhost";
 
-  # Php module for nginx
-  services.phpfpm.pools.mypool = {
-    user = "nobody";
-    settings = {
-      pm = "dynamic";
-      "listen.owner" = config.services.nginx.user;
-      "pm.max_children" = 5;
-      "pm.start_servers" = 2;
-      "pm.min_spare_servers" = 1;
-      "pm.max_spare_servers" = 3;
-      "pm.max_requests" = 500;
+    extraModules = [ "http2" ];
+
+    virtualHosts = {
+      localhost = {
+        enableUserDir = true;
+        documentRoot = "/var/htdocs";
+        enableSSL = false;
+        extraConfig = ''
+          <Directory "/var/htdocs">
+          Require all granted
+          </Directory>
+
+          <IfModule mod_dir.c>
+          DirectoryIndex index.html
+          </IfModule>
+        '';
+      };
     };
   };
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mariadb;
 
   # Enable sound.
   sound.enable = true;
