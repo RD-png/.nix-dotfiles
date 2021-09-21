@@ -15,5 +15,7 @@
 
    and then run ./result/activate to switch to this generation
 
-7. Run nixos-rebuild switch --flake '~/.nix-dotfiles/nixos#nixos-desktop' --upgrade
+7. Compile xmonad before running startx
+
+8. Run nixos-rebuild switch --flake '~/.nix-dotfiles/nixos#nixos-desktop' --upgrade
    (Replace nixos-desktop with the host chosen from the previos step)
