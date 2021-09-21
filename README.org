@@ -5,15 +5,14 @@
 3. Cd to /mnt/ (what will be ~/)
 4. Run (git clone https://github.com/RD-png/.nix-dotfiles) and cd into it
 5. Run git submodule update --init --recursive to get submodules
-6. Run bash install.sh to symlink the files need
-7. Run home-manager --flake '/root/.config/nixpkgs#nixos-desktop'
+6. Run home-manager --flake '~/.nix-dotfiles/home-manager#nixos-desktop'
 7. Home-manager --flake can be weird sometimes so run if previous didnt work
 
-   nix-shell -p nixUnstable --command "nix build --experimental-features 'nix-command flakes' '/root/.config/nixpkgs#nixos-desktop'"
+   nix-shell -p nixUnstable --command "nix build --experimental-features 'nix-command flakes' '~/.nix-dotfiles/home-manager#nixos-desktop'"
 
    and then run ./result/activate to switch to this generation
 
-   or replace nixos-desktop with which user profile we want
+   or replace nixos-desktop with which user profile we want, e.g nixos-laptop
 
-8. Run nixos-rebuild switch --flake '/etc/nixos#nixos-desktop' --upgrade
+8. Run nixos-rebuild switch --flake '~/.nix-dotfiles/nixos#nixos-desktop' --upgrade
    (Replace nixos-desktop with the host chosen from the previos step)
