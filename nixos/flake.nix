@@ -6,9 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     home-manager.url = "github:rycee/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     nixos-hardware.url = "github:nixos/nixos-hardware";
-
     nixpkgs.follows = "nixpkgs-unstable";
   };
 
@@ -27,7 +25,6 @@
           modules = [
             ./hosts/nixos-desktop/configuration.nix
             ./configuration.nix
-            # { nixpkgs.overlays = [ emacs.overlay ]; }
           ];
         };
 
@@ -38,11 +35,21 @@
             ./configuration.nix
           ];
         };
+
+        nixos-work = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/nixos-work/configuration.nix
+            ./configuration.nix
+          ];
+        };
       };
 
       nixos-desktop =
         self.nixosConfigurations.nixos-desktop.config.system.build.toplevel;
       nixos-laptop =
         self.nixosConfigurations.nixos-laptop.config.system.build.toplevel;
+      nixos-work =
+        self.nixosConfigurations.nixos-work.config.system.build.toplevel;
     };
 }

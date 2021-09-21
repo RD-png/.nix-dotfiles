@@ -9,6 +9,7 @@
     emacs-all-the-icons-fonts
     rnix-lsp
     gnutls
+    isync
   ];
 
   xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink

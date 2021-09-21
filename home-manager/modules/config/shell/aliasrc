@@ -15,5 +15,5 @@ alias e="emacsclient -n -c"
 
 # Nix
 alias npmig='npm install -g --unsafe-perm'
-alias nixRF="nixos-rebuild switch --flake '/etc/nixos#`uname -n`'"
-alias homeRF="home-manager switch --flake '/root/.config/nixpkgs#nixos-desktop'"
+alias nixRF="nixos-rebuild switch --flake '~/.nix-dotfiles/nixos#`uname -n`'"
+alias homeRF="home-manager switch --flake '~/.nix-dotfiles/home-manager#`uname -n`'"

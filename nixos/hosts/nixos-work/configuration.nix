@@ -3,7 +3,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Hostname
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "nixos-work";
 
   # Grub boot loader
   boot = {
