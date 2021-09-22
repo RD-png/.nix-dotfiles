@@ -2,6 +2,7 @@
   # General /home dotfiles
   home.file.".npmrc".source = config/dotfiles/npmrc;
   home.file.".nix-channels".source = config/dotfiles/nix-channels;
+  home.file.".mbsyncrc".source = config/dotfiles/mbsyncrc;
   home.file.".zprofile".source = config/shell/profile;
 
   # Config files
