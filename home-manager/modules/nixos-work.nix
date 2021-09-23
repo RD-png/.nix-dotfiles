@@ -26,5 +26,7 @@
     unzip
     (ripgrep.override { withPCRE2 = true; })
     fd
+    sshfs
+    openssh
   ];
 }
