@@ -28,5 +28,6 @@
     fd
     sshfs
     openssh
+    libreoffice
   ];
 }

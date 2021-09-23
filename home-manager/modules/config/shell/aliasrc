@@ -12,6 +12,7 @@ alias	grep="grep --color=auto"
 alias	diff="diff --color=auto"
 alias	cat="bat"
 alias e="emacsclient -n -c"
+alias cdp="cd /var/htdocs/Projects"
 
 # Nix
 alias npmig='npm install -g --unsafe-perm'
