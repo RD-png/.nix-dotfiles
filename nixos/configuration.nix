@@ -17,7 +17,7 @@
     };
   };
   services.xserver.xkbOptions = "ctrl:nocaps";
-  services.xserver.layout = "us";
+  services.xserver.layout = "gb";
 
   # apache server
   networking.networkmanager.enable = true;
