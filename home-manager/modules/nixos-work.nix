@@ -29,5 +29,6 @@
     sshfs
     openssh
     libreoffice
+    thunderbird
   ];
 }
