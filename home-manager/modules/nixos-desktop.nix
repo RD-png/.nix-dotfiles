@@ -31,5 +31,7 @@
     unzip
     (ripgrep.override { withPCRE2 = true; })
     fd
+    sd
+    pavucontrol
   ];
 }

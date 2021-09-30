@@ -10,6 +10,7 @@
     rnix-lsp
     gnutls
     isync
+    ispell
   ];
 
   xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink

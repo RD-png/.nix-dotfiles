@@ -1,8 +1,7 @@
 # zsh config
-cd "/root/"
-neofetch
-autoload -U colors && colors
-PS1="%B%{$fg[red]%}%n %B%{$fg[yellow]%}@ %B%{$fg[green]%}%~%{$reset_color%} %B%{$fg[magenta]%}>>%b "
+# autoload -U colors && colors
+# PS1="%B%{$fg[red]%}%n %B%{$fg[yellow]%}@ %B%{$fg[green]%}%~%{$reset_color%} %B%{$fg[magenta]%}>>%b "
+PS1="%{$fg[white]%}%n%{$fg[white]%}@%m%{$fg[white]%}:%{$fg[white]%} %~%{$reset_color%} %{$fg[white]%}#%b "
 setopt interactive_comments
 setopt autocd # cd into dirs without prefix
 stty stop undef
