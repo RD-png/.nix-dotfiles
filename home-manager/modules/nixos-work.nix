@@ -30,5 +30,6 @@
     openssh
     libreoffice
     thunderbird
+    sublime4
   ];
 }

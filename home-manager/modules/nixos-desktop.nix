@@ -33,6 +33,7 @@
     fd
     sd
     pavucontrol
+    sublime4
     scheme48
   ];
 }
