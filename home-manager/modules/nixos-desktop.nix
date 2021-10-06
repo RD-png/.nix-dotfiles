@@ -33,5 +33,6 @@
     fd
     sd
     pavucontrol
+    scheme48
   ];
 }
