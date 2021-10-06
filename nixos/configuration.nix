@@ -77,11 +77,15 @@
     wget
     git
     sqlite
-    pcmanfm
     dmenu
     alacritty
     neofetch
     htop
+    xfce.thunar
+    xfce.tumbler
+    xfce.xfconf
+    xfce.exo
+    gnome-icon-theme
   ];
 
   # Default system fonts
