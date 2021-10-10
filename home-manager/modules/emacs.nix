@@ -2,7 +2,9 @@
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacsPgtkGcc;
   home.packages = with pkgs; [
-    emacsPgtkGcc
+    ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages (epkgs: [
+      epkgs.vterm
+    ]))
     mu
     binutils
     zstd
