@@ -1,10 +1,8 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsPgtkGcc;
+  services.emacs.package = pkgs.emacsGcc;
   home.packages = with pkgs; [
-    ((emacsPackagesNgGen emacsPgtkGcc).emacsWithPackages (epkgs: [
-      epkgs.vterm
-    ]))
+    emacsGcc
     mu
     binutils
     zstd
