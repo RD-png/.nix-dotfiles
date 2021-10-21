@@ -31,12 +31,11 @@
               ./modules/home-manager.nix
               ./modules/emacs.nix
               ./modules/xmonad.nix
-              ./modules/zsh.nix
               ./modules/dotfiles.nix
             ];
           };
-          homeDirectory = "/root/";
-          username = "root";
+          homeDirectory = "/home/ryan/";
+          username = "ryan";
         };
 
         nixos-work = inputs.home-manager.lib.homeManagerConfiguration {
@@ -49,12 +48,11 @@
               ./modules/home-manager.nix
               ./modules/emacs.nix
               ./modules/xmonad.nix
-              ./modules/zsh.nix
               ./modules/dotfiles.nix
             ];
           };
-          homeDirectory = "/root/";
-          username = "root";
+          homeDirectory = "/home/ryan/";
+          username = "ryan";
         };
       };
       nixos-desktop = self.homeConfigurations.nixos-desktop.activationPackage;
