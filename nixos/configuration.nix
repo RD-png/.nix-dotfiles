@@ -4,20 +4,25 @@
   time.timeZone = "Europe/London";
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.autorun = false;
-  services.xserver.exportConfiguration = true;
-  services.lorri.enable = true;
-  services.xserver.displayManager.startx.enable = true;
-  services.xserver.displayManager.defaultSession = "none+xmonad";
-  services.xserver.windowManager = {
-    xmonad = with pkgs; {
-      enable = true;
-      extraPackages = hpkgs: with hpkgs; [ xmonad xmonad-contrib ];
+  services.xserver = {
+    enable = true;
+    autorun = false;
+    exportConfiguration = true;
+    displayManager = {
+      startx.enable = true;
+      defaultSession = "none+xmonad";
     };
+    windowManager = {
+      xmonad = with pkgs; {
+        enable = true;
+        extraPackages = hpkgs: with hpkgs; [ xmonad xmonad-contrib ];
+      };
+    };
+    layout = "gb";
+    xkbOptions = "ctrl:nocaps";
   };
-  services.xserver.xkbOptions = "ctrl:nocaps";
-  services.xserver.layout = "gb";
+  services.lorri.enable = true;
+
 
   # apache server
   networking.networkmanager.enable = true;
@@ -50,11 +55,17 @@
   services.mysql.package = pkgs.mariadb;
 
   # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio = {
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    support32Bit = true;
+    alsa.enable = true;
+    pulse.enable = true;
   };
+  # sound.enable = true;
+  # hardware.pulseaudio = {
+  #   enable = true;
+  #   support32Bit = true;
+  # };
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   # Configure nixpkgs
@@ -116,10 +127,9 @@
 
   environment.interactiveShellInit = ''
     alias homeRF="home-manager switch --flake '"$HOME"/.nix-dotfiles/home-manager#`uname -n`'"
-    alias nixRF="nixos-rebuild switch --flake '"$HOME"/.nix-dotfiles/nixos#`uname -n`'"
+    alias nixRF="sudo nixos-rebuild switch --flake '"$HOME"/.nix-dotfiles/nixos#`uname -n`'"
     alias grep='grep --color=auto'
     alias	diff="diff --color=auto"
-    alias nixRF="nixos-rebuild switch --flake '"$HOME"/.nix-dotfiles/nixos#`uname -n`'"
     alias npmig='npm install -g --unsafe-perm'
     alias cdp="cd /var/htdocs/Projects"
     alias e="emacsclient -n -c"
@@ -130,14 +140,17 @@
   # Default system fonts
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ source-code-pro ];
+    fonts = with pkgs; [
+      source-code-pro
+      fantasque-sans-mono
+    ];
   };
 
   users.users.ryan = {
     isNormalUser = true;
     home = "/home/ryan";
     description = "Ryan User";
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" ];
   };
   # users.extraUsers.ryan = { shell = pkgs.fish; };
 
