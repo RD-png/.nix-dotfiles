@@ -32,6 +32,7 @@
     (ripgrep.override { withPCRE2 = true; })
     fd
     sd
+    bat
     pavucontrol
     sublime4
     scheme48
