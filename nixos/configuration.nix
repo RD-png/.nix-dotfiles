@@ -26,6 +26,12 @@
     enable = true;
     enablePHP = true;
     adminAddr = "localhost";
+    phpOptions = ''
+    display_errors = On
+    error_reporting = E_ALL
+    opcache.enable = 0
+    opcache.revalidate_freq = 0    
+    '';
 
     extraModules = [ "http2" ];
 
@@ -91,7 +97,10 @@
   # Default system fonts
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ source-code-pro ];
+    fonts = with pkgs; [
+      source-code-pro
+      fantasque-sans-mono
+    ];
   };
 
   # Default / login shell zsh
