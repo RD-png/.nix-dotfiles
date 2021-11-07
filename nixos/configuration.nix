@@ -18,11 +18,10 @@
         extraPackages = hpkgs: with hpkgs; [ xmonad xmonad-contrib ];
       };
     };
-    layout = "gb";
+    layout = "us";
     xkbOptions = "ctrl:nocaps";
   };
   services.lorri.enable = true;
-
 
   # apache server
   networking.networkmanager.enable = true;
@@ -61,11 +60,6 @@
     alsa.enable = true;
     pulse.enable = true;
   };
-  # sound.enable = true;
-  # hardware.pulseaudio = {
-  #   enable = true;
-  #   support32Bit = true;
-  # };
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   # Configure nixpkgs
@@ -97,6 +91,7 @@
     xfce.xfconf
     xfce.exo
     gnome-icon-theme
+    mitscheme
   ];
 
   environment.sessionVariables = rec {
@@ -152,7 +147,13 @@
     description = "Ryan User";
     extraGroups = [ "wheel" "networkmanager" "video" ];
   };
-  # users.extraUsers.ryan = { shell = pkgs.fish; };
+
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    autosuggestions.enable = true;
+  };
+  users.extraUsers.root = { shell = pkgs.zsh; };
 
   # Remove generations older than 30 days
   nix.gc = {
