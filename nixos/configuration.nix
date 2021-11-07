@@ -30,6 +30,12 @@
     enable = true;
     enablePHP = true;
     adminAddr = "localhost";
+    phpOptions = ''
+    display_errors = On
+    error_reporting = E_ALL
+    opcache.enable = 0
+    opcache.revalidate_freq = 0    
+    '';
 
     extraModules = [ "http2" ];
 
