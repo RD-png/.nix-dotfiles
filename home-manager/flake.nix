@@ -27,6 +27,7 @@
             nixpkgs.config = config;
             nixpkgs.overlays = overlays;
             imports = [
+              ./modules/default-packages.nix
               ./modules/nixos-desktop.nix
               ./modules/home-manager.nix
               ./modules/emacs.nix
@@ -44,6 +45,7 @@
             nixpkgs.config = config;
             nixpkgs.overlays = overlays;
             imports = [
+              ./modules/default-packages.nix
               ./modules/nixos-work.nix
               ./modules/home-manager.nix
               ./modules/emacs.nix

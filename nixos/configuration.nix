@@ -3,69 +3,73 @@
   # Date and time
   time.timeZone = "Europe/London";
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    autorun = false;
-    exportConfiguration = true;
-    displayManager = {
-      startx.enable = true;
-      defaultSession = "none+xmonad";
+  # System services
+  services = {
+    # Window manager
+    xserver = {
+      enable = true;
+      autorun = false;
+      exportConfiguration = true;
+      displayManager = {
+        startx.enable = true;
+        defaultSession = "none+xmonad";
+      };
+      windowManager = { xmonad = with pkgs; { enable = true; }; };
+      layout = "us";
+      xkbOptions = "ctrl:nocaps";
     };
-    windowManager = {
-      xmonad = with pkgs; {
-        enable = true;
-        extraPackages = hpkgs: with hpkgs; [ xmonad xmonad-contrib ];
+
+    # Audio
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
+
+    # Localhost
+    httpd = {
+      enable = true;
+      enablePHP = true;
+      adminAddr = "localhost";
+      phpOptions = ''
+        display_errors = On
+        error_reporting = E_ALL
+        opcache.enable = 0
+        opcache.revalidate_freq = 0
+      '';
+      extraModules = [ "http2" ];
+      virtualHosts = {
+        localhost = {
+          enableUserDir = true;
+          documentRoot = "/var/htdocs";
+          enableSSL = false;
+          extraConfig = ''
+            <Directory "/var/htdocs">
+              Require all granted
+            </Directory>
+
+            <IfModule mod_dir.c>
+              DirectoryIndex index.html
+            </IfModule>
+          '';
+        };
       };
     };
-    layout = "us";
-    xkbOptions = "ctrl:nocaps";
-  };
-  services.lorri.enable = true;
 
-  # apache server
-  networking.networkmanager.enable = true;
+    # Misc
+    mysql.enable = true;
+    mysql.package = pkgs.mariadb;
+    lorri.enable = true;
+  };
+
+  # Networking
   networking.firewall.allowedTCPPorts = [ 80 443 ];
-  services.httpd = {
-    enable = true;
-    enablePHP = true;
-    adminAddr = "localhost";
-    phpOptions = ''
-    display_errors = On
-    error_reporting = E_ALL
-    opcache.enable = 0
-    opcache.revalidate_freq = 0    
-    '';
+  networking.networkmanager.enable = true;
 
-    extraModules = [ "http2" ];
-
-    virtualHosts = {
-      localhost = {
-        enableUserDir = true;
-        documentRoot = "/var/htdocs";
-        enableSSL = false;
-        extraConfig = ''
-          <Directory "/var/htdocs">
-          Require all granted
-          </Directory>
-
-          <IfModule mod_dir.c>
-          DirectoryIndex index.html
-          </IfModule>
-        '';
-      };
-    };
-  };
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
-
-  # Enable sound.
+  # Security
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
+
+  # System
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   # Configure nixpkgs
@@ -83,21 +87,7 @@
 
   # Default system packages
   environment.systemPackages = with pkgs; [
-    home-manager
-    vim
-    wget
-    git
-    sqlite
-    dmenu
-    alacritty
-    neofetch
-    htop
-    xfce.thunar
-    xfce.tumbler
-    xfce.xfconf
-    xfce.exo
-    gnome-icon-theme
-    mitscheme
+    home-manager  
   ];
 
   environment.sessionVariables = rec {
@@ -107,10 +97,7 @@
     XDG_DATA_HOME = "\${HOME}/.local/share";
     XDG_STATE_HOME = "\${HOME}/.local/state";
 
-    PATH = [
-      "\${XDG_BIN_HOME}"
-      "\${HOME}/.config/npm/bin"
-    ];
+    PATH = [ "\${XDG_BIN_HOME}" "\${HOME}/.config/npm/bin" ];
   };
 
   environment.variables = {
@@ -141,10 +128,7 @@
   # Default system fonts
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
-      source-code-pro
-      fantasque-sans-mono
-    ];
+    fonts = with pkgs; [ source-code-pro fantasque-sans-mono ];
   };
 
   users.users.ryan = {

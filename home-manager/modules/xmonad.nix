@@ -1,7 +1,8 @@
 { config, pkgs, libs, ... }: {
   home.packages = with pkgs; [
     xmobar
-    haskellPackages.xmonad-contrib
+    haskellPackages.xmonad
+    haskellPackages.xmonad-contrib    
     cabal-install
     feh
     font-awesome
