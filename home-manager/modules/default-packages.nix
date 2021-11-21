@@ -8,6 +8,7 @@
     xfce.exo
     alacritty
     sublime4
+    brave
     firefox
 
     # Programming

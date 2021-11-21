@@ -3,6 +3,7 @@
     # General
     discord
     spotify
+    inkscape
     
     # Programming
     mitscheme    
