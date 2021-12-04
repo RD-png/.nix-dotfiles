@@ -1,4 +1,12 @@
 { config, pkgs, libs, ... }: {
+
+  # services.picom.package = pkgs.picom.overrideAttrs (old: {
+  #   src = builtins.fetchTarball {
+  #     url = "https://github.com/ibhagwan/picom/archive/next.tar.gz";
+  #     sha256 = "1z51xk9vdy5l925msmprmhzjis516h76id2qhdswf916ssjgxl6m";
+  #   };
+  # });
+
   home.packages = with pkgs; [
     # General
     gnome-icon-theme
@@ -19,6 +27,7 @@
     nixfmt
     nodejs
     pipenv
+    cargo
     vim
     git
     gcc
@@ -40,17 +49,21 @@
     nodePackages."@vue/cli"
 
     # Utils
+    pkgs.nur.repos.reedrw.picom-next-ibhagwan # Picom override
     (ripgrep.override { withPCRE2 = true; })
     pavucontrol
     neofetch
     openssh
-    sshfs    
-    dmenu
+    polybar
+    glxinfo
+    sshfs
     unzip
+    rofi
     htop
     wget
     tldr
     bat
+    exa
     fd
     sd
   ];

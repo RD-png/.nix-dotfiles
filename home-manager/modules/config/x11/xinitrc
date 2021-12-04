@@ -1,1 +1,2 @@
+exec picom &> /dev/null &
 exec xmonad

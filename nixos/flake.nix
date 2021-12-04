@@ -17,7 +17,8 @@
         allowUnfree = true;
       };
 
-    in {
+    in
+    {
 
       nixosConfigurations = {
         nixos-desktop = nixpkgs.lib.nixosSystem {

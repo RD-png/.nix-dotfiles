@@ -10,6 +10,7 @@
     };
     # Pkg overlays
     emacs.url = "github:nix-community/emacs-overlay";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs@{ self, nixpkgs, ... }:
@@ -17,9 +18,10 @@
       system = "x86_64-linux";
       config.allowUnfree = true;
 
-      overlays = with inputs; [ emacs.overlay ];
+      overlays = with inputs; [ emacs.overlay nur.overlay ];
 
-    in {
+    in
+    {
       homeConfigurations = {
         nixos-desktop = inputs.home-manager.lib.homeManagerConfiguration {
           inherit system;
