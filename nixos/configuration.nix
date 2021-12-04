@@ -91,7 +91,7 @@
 
   environment = {
     systemPackages = with pkgs; [
-      home-manager
+      home-manager    
     ];
     sessionVariables = rec {
       XDG_CACHE_HOME = "$HOME/.cache";
