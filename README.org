@@ -3,7 +3,7 @@
 1. Install nix iso
 2. Mount system to /mnt
 3. Cd to /mnt/ (what will be ~/)
-4. Run (git clone https://github.com/RD-png/.nix-dotfiles) and cd into it
+4. Run (git clone https://github.com/RD-png/.nix-dotfiles) replace home directory with the folder and name it the same as  the user and cd into it
 5. Run git submodule update --init --recursive to get submodules
 6. Run the following and activate the activation packages, replace nixos-desktop with which user profile we want, e.g nixos-laptop
 
