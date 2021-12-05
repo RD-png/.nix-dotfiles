@@ -1,0 +1,61 @@
+{ config, pkgs, libs, ... }: {
+  home.packages = with pkgs; [
+    ## General
+    gnome-icon-theme
+    xfce.tumbler
+    xfce.thunar
+    xfce.xfconf
+    xfce.exo
+    alacritty
+    sublime4
+    firefox
+    brave    
+
+    ## Programming
+    texlive.combined.scheme-full
+    haskell-language-server
+    sqlitebrowser
+    sqlite
+    nixfmt
+    nodejs
+    pipenv
+    cargo
+    vim
+    git
+    gcc
+    ghc
+    php
+    # Python packages
+    python39Packages.python-lsp-server
+    python39Packages.setuptools
+    python39Packages.virtualenv
+    python39Packages.ipython
+    python39Packages.pylint
+    python39Packages.flake8
+    python39Packages.black
+    python39Packages.pip
+    python39Full
+    # Node packages
+    nodePackages.npm
+    nodePackages.vls
+    nodePackages."@vue/cli"
+
+    ## Utils
+    # pkgs.nur.repos.reedrw.picom-next-ibhagwan
+    (ripgrep.override { withPCRE2 = true; })
+    pavucontrol
+    neofetch
+    openssh
+    picom
+    sshfs
+    unzip    
+    htop
+    wget
+    tldr
+    bat
+    exa
+    feh
+    fd
+    sd
+  ];
+}

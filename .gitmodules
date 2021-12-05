@@ -1,6 +1,6 @@
-[submodule "home-manager/modules/config/emacs"]
-	path = home-manager/modules/config/emacs
+[submodule ".config/emacs"]
+	path = .config/emacs
 	url = https://github.com/RD-png/.emacs.d
-[submodule "home-manager/modules/config/xmonad"]
-	path = home-manager/modules/config/xmonad
+[submodule ".config/xmonad"]
+	path = .config/xmonad
 	url = https://github.com/RD-png/.xmonad
