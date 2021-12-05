@@ -65,7 +65,7 @@ keys = [
     Key([mod], "t", lazy.layout.normalize()),
 
     # Spawn Programs
-    Key([mod], "d", lazy.spawn("dmenu_run")),
+    Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=12.8' -nf #c5c8c6 -sf #c5c8c6 -nb #1d1f21 -sb #AA3355")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([mod, "shift"], "p", lazy.spawn("postman")),
