@@ -14,8 +14,8 @@
       windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
-      autoRepeatDelay = 200;
-      autoRepeatInterval = 30;
+      autoRepeatDelay = 250;
+      autoRepeatInterval = 27;
     };
 
     picom = {
@@ -74,7 +74,7 @@
       enable = true;
       package = pkgs.mariadb;
     };
-    lorri.enable = true;
+    # lorri.enable = true;
   };
 
   programs = {
@@ -97,7 +97,9 @@
   nixpkgs.config = { allowUnfree = true; };
 
   environment = {
-    systemPackages = with pkgs; [ home-manager ];
+    systemPackages = with pkgs; [
+    home-manager    
+    ];
     sessionVariables = rec {
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
@@ -146,7 +148,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "wwwrun" ];
       shell = pkgs.zsh;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };

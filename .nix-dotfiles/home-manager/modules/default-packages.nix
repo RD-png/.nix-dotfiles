@@ -15,6 +15,7 @@
     texlive.combined.scheme-full
     haskell-language-server
     sqlitebrowser
+    nix-direnv
     sqlite
     nixfmt
     nodejs
@@ -46,14 +47,14 @@
     pavucontrol
     neofetch
     openssh
+    exa    
     picom
     sshfs
     unzip    
     htop
     wget
     tldr
-    bat
-    exa
+    bat    
     feh
     fd
     sd
