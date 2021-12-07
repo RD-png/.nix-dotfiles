@@ -15,7 +15,7 @@
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
-      autoRepeatInterval = 27;
+      autoRepeatInterval = 25;
     };
 
     picom = {
@@ -43,6 +43,7 @@
 
     httpd = {
       enable = true;
+      user = "ryan";
       enablePHP = true;
       adminAddr = "localhost";
       phpOptions = ''
@@ -98,7 +99,8 @@
 
   environment = {
     systemPackages = with pkgs; [
-    home-manager    
+      home-manager
+      exa
     ];
     sessionVariables = rec {
       XDG_CACHE_HOME = "$HOME/.cache";
@@ -148,7 +150,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "wwwrun" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "wwwrun" "mysql" ];
       shell = pkgs.zsh;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };
