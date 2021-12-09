@@ -97,7 +97,6 @@
   nixpkgs.config = { allowUnfree = true; };
 
   environment = {
-    systemPackages = with pkgs; [ home-manager ];
     sessionVariables = rec {
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
