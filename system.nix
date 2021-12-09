@@ -43,6 +43,7 @@
 
     httpd = {
       enable = true;
+      user = "ryan";
       enablePHP = true;
       adminAddr = "localhost";
       phpOptions = ''

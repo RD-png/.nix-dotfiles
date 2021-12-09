@@ -49,7 +49,7 @@
                   (builtins.attrNames (builtins.readDir ./modules));
               };
             }
-            ./configuration.nix
+            ./system.nix
             host
             home-manager.nixosModules.home-manager
           ];
