@@ -114,16 +114,13 @@
       XINITRC = "$XDG_CONFIG_HOME/x11/xinitrc";
       XMONAD_CONFIG_DIR = "$XDG_CONFIG_HOME/xmonad";
       XMONAD_DATA_DIR = "$XDG_CONFIG_HOME/xmonad";
-      VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
+      VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";      
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       EDITOR = "emacs";
     };
     shellAliases = {
-      homeRF =
-        "home-manager switch --flake $HOME/.nix-dotfiles/home-manager#`uname -n`";
-      nixRF =
-        "sudo nixos-rebuild switch --flake $HOME/.nix-dotfiles/nixos#`uname -n`";
+      nixRF = "sudo nixos-rebuild switch --flake .#`uname -n`";
       ls = "exa --long --header --icons --git --group-directories-first -a";
       l = "exa --long --header --icons --git --group-directories-first";
       grep = "grep --color=auto";
