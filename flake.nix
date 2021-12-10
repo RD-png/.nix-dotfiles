@@ -40,6 +40,7 @@
               nixpkgs.overlays = [ emacs.overlay nur.overlay ];
               home-manager.useUserPackages = true;
               home-manager.users.ryan = {
+                xdg.enable = true;
                 home.stateVersion = "22.05";
                 home.username = "ryan";
                 home.homeDirectory = "/home/ryan";

@@ -114,7 +114,7 @@
       XINITRC = "$XDG_CONFIG_HOME/x11/xinitrc";
       XMONAD_CONFIG_DIR = "$XDG_CONFIG_HOME/xmonad";
       XMONAD_DATA_DIR = "$XDG_CONFIG_HOME/xmonad";
-      VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";      
+      VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       EDITOR = "emacs";
@@ -143,7 +143,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "wwwrun" "mysql" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" ];
       shell = pkgs.zsh;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };
