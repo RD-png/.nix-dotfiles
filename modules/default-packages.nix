@@ -16,6 +16,7 @@
     haskell-language-server
     sqlitebrowser
     nix-direnv
+    direnv
     sqlite
     nixfmt
     nodejs

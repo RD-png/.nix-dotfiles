@@ -74,6 +74,13 @@
     mysql = {
       enable = true;
       package = pkgs.mariadb;
+      ensureDatabases = [ "db" ];
+      ensureUsers = [{
+        name = "ryan";
+        ensurePermissions = {
+          "db.*" = "ALL PRIVILEGES";
+        };
+      }];
     };
     # lorri.enable = true;
   };
