@@ -1,5 +1,8 @@
 { inputs, config, pkgs, lib, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./home.nix
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "nixos-desktop";
 

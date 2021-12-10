@@ -1,10 +1,11 @@
 { config, pkgs, libs, ... }: {
-  home.packages = with pkgs; [
+  # Packages for this host
+  home-manager.users.ryan.home.packages = with pkgs; [
     # General
     libreoffice
     thunderbird
-    
+
     # Programming
-    postman    
+    postman
   ];
 }
