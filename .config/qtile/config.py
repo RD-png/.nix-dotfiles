@@ -117,7 +117,7 @@ extension_defaults = widget_defaults.copy()
 
 def arrow():
     __box = widget.TextBox(
-        text='',
+        text='|',
         foreground="#74438f",
         padding=0,
         fontsize=37
@@ -140,6 +140,14 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                arrow(),
+                widget.Battery(
+                    padding=3,
+                    low_percentage=0.20,
+                    low_foreground="#ff5555",
+                    update_delay=15,
+                    format='BAT: {percent:.0%}',
+                ),
                 arrow(),
                 widget.CPU(
                     padding=2,

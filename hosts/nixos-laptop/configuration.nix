@@ -1,7 +1,7 @@
 { inputs, config, pkgs, lib, ... }: {
   imports = [ ./hardware-configuration.nix ];
   
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "nixos-laptop";
   
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
