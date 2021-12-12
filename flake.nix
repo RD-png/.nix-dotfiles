@@ -35,9 +35,8 @@
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs inputs system; };
-          modules = [            
-            {
-              nixpkgs.overlays = [ emacs.overlay nur.overlay ];
+          modules = [
+            {              
               home-manager.useUserPackages = true;
               home-manager.users.ryan = {
                 xdg.enable = true;
@@ -45,6 +44,7 @@
                 home.username = "ryan";
                 home.homeDirectory = "/home/ryan";
                 nixpkgs.config.allowUnfree = true;
+                nixpkgs.overlays = [ emacs.overlay nur.overlay ];
                 imports = map
                   (module: "${./modules}/${module}")
                   (builtins.attrNames (builtins.readDir ./modules));
