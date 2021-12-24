@@ -36,7 +36,7 @@
           inherit system;
           specialArgs = { inherit pkgs inputs system; };
           modules = [
-            {              
+            {
               home-manager.useUserPackages = true;
               home-manager.users.ryan = {
                 xdg.enable = true;
@@ -45,8 +45,7 @@
                 home.homeDirectory = "/home/ryan";
                 nixpkgs.config.allowUnfree = true;
                 nixpkgs.overlays = [ emacs.overlay nur.overlay ];
-                imports = map
-                  (module: "${./modules}/${module}")
+                imports = map (module: "${./modules}/${module}")
                   (builtins.attrNames (builtins.readDir ./modules));
               };
             }
@@ -56,17 +55,12 @@
           ];
         };
 
-    in
-    {
-      nixosConfigurations = builtins.listToAttrs (map
-        (host: {
-          name = host;
-          value = nixUserFlake {
-            imports = [
-              (import (./hosts + "/${host}/configuration.nix"))
-            ];
-          };
-        })
-        (builtins.attrNames (builtins.readDir ./hosts)));
+    in {
+      nixosConfigurations = builtins.listToAttrs (map (host: {
+        name = host;
+        value = nixUserFlake {
+          imports = [ (import (./hosts + "/${host}/configuration.nix")) ];
+        };
+      }) (builtins.attrNames (builtins.readDir ./hosts)));
     };
 }

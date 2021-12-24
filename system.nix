@@ -1,5 +1,4 @@
 { inputs, config, pkgs, lib, ... }: {
-
   time.timeZone = "Europe/London";
   services = {
     xserver = {
@@ -16,7 +15,7 @@
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
       autoRepeatInterval = 25;
-    };
+    };    
 
     picom = {
       enable = true;
@@ -27,7 +26,7 @@
           method = "kawase";
           strength = 75;
         };
-        opacity-rule = [ "85:class_g    = 'Alacritty'" ];
+        # opacity-rule = [ "85:class_g    = 'Alacritty'" ];
       };
     };
 
@@ -77,21 +76,12 @@
       ensureDatabases = [ "db" ];
       ensureUsers = [{
         name = "ryan";
-        ensurePermissions = {
-          "db.*" = "ALL PRIVILEGES";
-        };
+        ensurePermissions = { "db.*" = "ALL PRIVILEGES"; };
       }];
     };
-    # lorri.enable = true;
   };
-
-  programs = {
-    zsh = {
-      enable = true;
-      syntaxHighlighting.enable = true;
-      autosuggestions.enable = true;
-    };
-  };
+  programs.dconf.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   networking = {
     firewall.allowedTCPPorts = [ 80 443 ];
@@ -122,6 +112,7 @@
       XMONAD_CONFIG_DIR = "$XDG_CONFIG_HOME/xmonad";
       XMONAD_DATA_DIR = "$XDG_CONFIG_HOME/xmonad";
       VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
+      ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
       BROWSER = "firefox";
       TERMINAL = "alacritty";
       EDITOR = "emacs";
@@ -143,6 +134,15 @@
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome ];
+  };
+
+  programs = {
+    zsh = {
+      enable = true;
+      syntaxHighlighting.enable = true;
+      autosuggestions.enable = true;
+      histFile = "$XDG_CONFIG_HOME/zsh/zsh_history";
+    };
   };
 
   users = {

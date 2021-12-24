@@ -10,3 +10,5 @@ default.nix
 /.zshrc
 /Downloads/
 /Documents/
+/.config/BraveSoftware/
+/.config/discord/

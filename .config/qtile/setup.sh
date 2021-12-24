@@ -11,4 +11,4 @@ then
     xrandr --output DP-1 --mode 1920x1080 --left-of VGA-1
 fi
    
-feh --bg-scale ~/.config/qtile/photo-1510839154674-905169657821.jpeg
+feh --bg-scale ~/.config/qtile/photo-1625980953551-50502b3b8b2f.jpeg

@@ -26,6 +26,8 @@
 
 import os
 import subprocess
+import socket
+import psutil
 from typing import List  # noqa: F401
 
 from libqtile import qtile, hook
@@ -65,7 +67,7 @@ keys = [
     Key([mod], "t", lazy.layout.normalize()),
 
     # Spawn Programs
-    Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=12.8' -nf #c5c8c6 -sf #c5c8c6 -nb #1d1f21 -sb #AA3355")),
+    Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([mod, "shift"], "p", lazy.spawn("postman")),
@@ -96,43 +98,69 @@ for i in groups:
     ])
 
     layout_theme = {"border_width": 3,
-                    "margin": 8,
-                    "border_focus": "#53E2AE",
-                    "border_normal": "#5a6478",
+                    "margin": 0,
+                    "border_focus": "#005577",
+                    "border_normal": "#444444",
                     }
 
 layouts = [
-    layout.Columns(**layout_theme),
-    layout.Floating(**layout_theme),
+    layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
     layout.Max(),
 ]
 
 widget_defaults = dict(
-    font='sans',
+    font='monospace',
     fontsize=12,
     padding=2,
 )
 extension_defaults = widget_defaults.copy()
 
 
-def arrow():
+def sexp_open():
     __box = widget.TextBox(
-        text='|',
-        foreground="#74438f",
+        text='[',
+        foreground="#eeeeee",
         padding=0,
         fontsize=37
         )
     return __box
 
 
+def sexp_close():
+    __box = widget.TextBox(
+        text=']',
+        foreground="#eeeeee",
+        padding=0,
+        fontsize=37
+        )
+    return __box
+
+
+def cus_battery():
+    if socket.gethostname() == "nixos-laptop":
+        return widget.Battery(
+            padding=3,
+            low_percentage=0.20,
+            low_foreground="#ff5555",
+            update_delay=15,
+            format='[ BAT: {percent:.0%} ]',
+            )
+    return widget.TextBox(
+        text='',
+        padding=0,
+        fontsize=0
+    )
+
+
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(highlight_method="line", highlight_color="#005577", padding_x=7, borderwidth=0, margin_x=0, disable_drag=True, block_highlight_text_color="FFFFFF"),
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.WindowName(
+                    background="#005577",
+                ),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
@@ -140,32 +168,22 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
-                arrow(),
-                widget.Battery(
-                    padding=3,
-                    low_percentage=0.20,
-                    low_foreground="#ff5555",
-                    update_delay=15,
-                    format='BAT: {percent:.0%}',
-                ),
-                arrow(),
+                cus_battery(),
                 widget.CPU(
                     padding=2,
-                    format="CPU: {load_percent:2.0f}%",
+                    format="[CPU  {load_percent:2.0f}%]",
                     update_interval=2.0,
                     mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -t dropdown_cpu -e btm')},
                  ),
-                arrow(),
                 widget.Memory(
-                 format='MEM: {MemUsed:2.0f}M/{MemTotal:2.0f}M',
+                 format="[RAM  {MemPercent:2.0f}%]",
                  update_interval=2.0,
                  ),
-                arrow(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Clock(format='(%Y-%m-%d) (%a) %H:%M'),
 
             ],
             size=26,
-            opacity=0.6
+            # opacity=0.6
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -203,6 +221,28 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
+
+
+@hook.subscribe.client_new
+def _swallow(window):
+    pid = window.window.get_net_wm_pid()
+    ppid = psutil.Process(pid).ppid()
+    cpids = {c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()}
+    for i in range(5):
+        if not ppid:
+            return
+        if ppid in cpids:
+            parent = window.qtile.windows_map.get(cpids[ppid])
+            parent.minimized = True
+            window.parent = parent
+            return
+        ppid = psutil.Process(ppid).ppid()
+
+
+@hook.subscribe.client_killed
+def _unswallow(window):
+    if hasattr(window, 'parent'):
+        window.parent.minimized = False
 
 
 @hook.subscribe.startup_once
