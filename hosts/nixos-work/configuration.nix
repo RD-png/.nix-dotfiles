@@ -1,5 +1,5 @@
 { inputs, config, pkgs, lib, ... }: {  
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./home.nix ./hardware-configuration.nix ];
 
   networking.hostName = "nixos-work";
   
@@ -13,14 +13,14 @@
     };
   };
 
-  services = {
-    cron = {
-      enable = true;
-      systemCronJobs = [
-        "10 * * * * root  ${pkgs.php}/bin/php /var/htdocs/Projects/Stock_Test_env/pull_api_orders.php"        
-      ];
-    };
-  };
+  # services = {
+  #   cron = {
+  #     enable = true;
+  #     systemCronJobs = [
+  #       "10 * * * * root  ${pkgs.php}/bin/php /var/htdocs/Projects/Stock_Test_env/pull_api_orders.php"        
+  #     ];
+  #   };
+  # };
 
   fileSystems."/mnt/deepthought" = {
     device = "//192.168.0.24/wwwroot";

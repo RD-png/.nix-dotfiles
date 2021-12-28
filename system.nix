@@ -80,8 +80,6 @@
       }];
     };
   };
-  programs.dconf.enable = true;
-  virtualisation.libvirtd.enable = true;
 
   networking = {
     firewall.allowedTCPPorts = [ 80 443 ];

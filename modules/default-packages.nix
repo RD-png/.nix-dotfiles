@@ -8,6 +8,7 @@
     xfce.exo
     alacritty
     sublime4
+    inkscape
     firefox
     brave    
 
