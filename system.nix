@@ -82,10 +82,10 @@
 
     postgresql = {
       enable = true;
-      ensureDatabases = [ "db" ];
+      ensureDatabases = [ "elixir_db" ];
       ensureUsers = [{
         name = "ryan";
-        ensurePermissions = { "DATABASE db" = "ALL PRIVILEGES"; };
+        ensurePermissions = { "DATABASE elixir_db" = "ALL PRIVILEGES"; };
       }];
     };
   };
