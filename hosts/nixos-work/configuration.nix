@@ -48,19 +48,17 @@
     noCheck = true;
     options =
       [
-        "allow_other"
-        "default_permissions"
-        "_netdev"
-        "idmap=user"
-        "gid=1000"
-        "uid=1000"
-        "user"
-        "rw"
-        "reconnect"
-        "IdentityFile=/home/ryan/.ssh/id_rsa"
         "x-systemd.automount"
-        "x-systemd.requires=network.target"
+        "_netdev"
+        "user"
+        "idmap=user"
         "transform_symlinks"
+        "IdentityFile=/home/ryan/.ssh/id_rsa"
+        "allow_other"
+        "reconnect"
+        "default_permissions"
+        "uid=1000"
+        "gid=1000"
       ];
   };
 
