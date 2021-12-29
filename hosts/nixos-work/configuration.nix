@@ -1,8 +1,8 @@
-{ inputs, config, pkgs, lib, ... }: {  
+{ inputs, config, pkgs, lib, ... }: {
   imports = [ ./home.nix ./hardware-configuration.nix ];
 
   networking.hostName = "nixos-work";
-  
+
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
@@ -17,7 +17,7 @@
   #   cron = {
   #     enable = true;
   #     systemCronJobs = [
-  #       "10 * * * * root  ${pkgs.php}/bin/php /var/htdocs/Projects/Stock_Test_env/pull_api_orders.php"        
+  #       "10 * * * * root  ${pkgs.php}/bin/php /var/htdocs/Projects/Stock_Test_env/pull_api_orders.php"
   #     ];
   #   };
   # };
@@ -42,6 +42,28 @@
       [ "${automount_opts},credentials=/etc/nixos/smb-secrets" ];
   };
 
+  fileSystems."/mnt/elixir" = {
+    device = "vova@192.168.0.125:/";
+    fsType = "fuse.sshfs";
+    noCheck = true;
+    options =
+      [
+        "allow_other"
+        "default_permissions"
+        "_netdev"
+        "idmap=user"
+        "gid=1000"
+        "uid=1000"
+        "user"
+        "rw"
+        "reconnect"
+        "IdentityFile=/home/ryan/.ssh/id_rsa"
+        "x-systemd.automount"
+        "x-systemd.requires=network.target"
+        "transform_symlinks"
+      ];
+  };
+
   # systemd.mounts = [
   #   {
   #     what = "root@192.168.0.15:/home/vova/fesp";
@@ -53,7 +75,7 @@
   # ];
 
   # System default packages
-  # environment.systemPackages = with pkgs; [ ];
+  environment.systemPackages = with pkgs; [ sshfs ];
 
   # System default fonts
   # fonts = {
