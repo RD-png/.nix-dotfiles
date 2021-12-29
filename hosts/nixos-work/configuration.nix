@@ -49,35 +49,19 @@
     options =
       [
         "x-systemd.automount"
+        "reconnect"
         "_netdev"
         "user"
         "idmap=user"
         "transform_symlinks"
         "IdentityFile=/home/ryan/.ssh/id_rsa"
         "allow_other"
-        "reconnect"
         "default_permissions"
         "uid=1000"
         "gid=1000"
       ];
   };
 
-  # systemd.mounts = [
-  #   {
-  #     what = "root@192.168.0.15:/home/vova/fesp";
-  #     where = "/mnt/linux_fesp";
-  #     type = "fuse";
-  #     options = "identityfile=~/.sshid,allow_other";
-  #     wantedBy = [ "multi-user.target" ];
-  #   }
-  # ];
-
   # System default packages
   environment.systemPackages = with pkgs; [ sshfs ];
-
-  # System default fonts
-  # fonts = {
-  #   fontDir.enable = true;
-  #   fonts = with pkgs; [ ];
-  # };
 }
