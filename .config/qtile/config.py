@@ -85,7 +85,7 @@ groups = [Group(i) for i in "123456789"]
 for i in groups:
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
+        Key([mod], i.name, lazy.group[i.name].toscreen(toggle=True),
             desc="Switch to group {}".format(i.name)),
 
         # mod1 + shift + letter of group = switch to & move focused window to group
@@ -116,26 +116,6 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 
-def sexp_open():
-    __box = widget.TextBox(
-        text='[',
-        foreground="#eeeeee",
-        padding=0,
-        fontsize=37
-        )
-    return __box
-
-
-def sexp_close():
-    __box = widget.TextBox(
-        text=']',
-        foreground="#eeeeee",
-        padding=0,
-        fontsize=37
-        )
-    return __box
-
-
 def cus_battery():
     if socket.gethostname() == "nixos-laptop":
         return widget.Battery(
@@ -153,6 +133,41 @@ def cus_battery():
 
 
 screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(highlight_method="line", highlight_color="#005577", padding_x=7, borderwidth=0, margin_x=0, disable_drag=True, block_highlight_text_color="FFFFFF"),
+                widget.Prompt(),
+                widget.WindowName(
+                    background="#005577",
+                ),
+                widget.Chord(
+                    chords_colors={
+                        'launch': ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.Systray(),
+                cus_battery(),
+                widget.CPU(
+                    padding=2,
+                    format="[CPU  {load_percent:2.0f}%]",
+                    update_interval=2.0,
+                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -t dropdown_cpu -e btm')},
+                 ),
+                widget.Memory(
+                 format="[RAM  {MemPercent:2.0f}%]",
+                 update_interval=2.0,
+                 ),
+                widget.Clock(format='(%Y-%m-%d) (%a) %H:%M'),
+
+            ],
+            size=26,
+            # opacity=0.6
+            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+        ),
+    ),
     Screen(
         top=bar.Bar(
             [
