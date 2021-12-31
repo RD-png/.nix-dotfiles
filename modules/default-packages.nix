@@ -16,6 +16,7 @@
     texlive.combined.scheme-full
     haskell-language-server
     sqlitebrowser
+    postgresql
     nix-direnv
     direnv
     sqlite

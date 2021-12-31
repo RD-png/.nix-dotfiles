@@ -15,7 +15,7 @@
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
       autoRepeatInterval = 25;
-    };    
+    };
 
     picom = {
       enable = true;
@@ -70,13 +70,22 @@
       };
     };
 
-    mysql = {
+    #   mysql = {
+    #     enable = true;
+    #     package = pkgs.mariadb;
+    #     ensureDatabases = [ "db" ];
+    #     ensureUsers = [{
+    #       name = "ryan";
+    #       ensurePermissions = { "db.*" = "ALL PRIVILEGES"; };
+    #     }];
+    #   };
+
+    postgresql = {
       enable = true;
-      package = pkgs.mariadb;
-      ensureDatabases = [ "db" ];
+      ensureDatabases = [ "elixir_db" ];
       ensureUsers = [{
         name = "ryan";
-        ensurePermissions = { "db.*" = "ALL PRIVILEGES"; };
+        ensurePermissions = { "DATABASE elixir_db" = "ALL PRIVILEGES"; };
       }];
     };
   };

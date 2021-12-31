@@ -1,6 +1,11 @@
 env:
   TERM: xterm-256color
 
+# font:
+#   normal:
+#     family: Fantasque Sans Mono
+#     style: Normal
+
 scrolling:
   # How many lines of scrollback to keep,
   # '0' will disable scrolling.
@@ -17,5 +22,5 @@ window:
   decorations: full
 
 key_bindings:
-  - { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
-  - { key: PageDown,  mods: Shift,   mode: ~Alt, action: ScrollPageDown }
+  - { key: P,         mods: Control|Shift,                   action: ScrollPageUp,  }
+  - { key: N,         mods: Control|Shift,                   action: ScrollPageDown }
