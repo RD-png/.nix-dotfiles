@@ -47,7 +47,7 @@ keys = [
     Key([mod], "l", lazy.layout.right()),
     Key([mod], "j", lazy.layout.next()),
     Key([mod], "k", lazy.layout.previous()),
-    Key([mod], "period", lazy.next_screen()),
+    Key([mod], "o", lazy.next_screen()),
     Key([mod], "comma", lazy.prev_screen()),
 
     # Window Control
