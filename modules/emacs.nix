@@ -1,15 +1,17 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsGit;
+  services.emacs.package = pkgs.emacsGcc;
   home.packages = with pkgs; [
-    emacsGit
+    ((emacsPackagesNgGen emacsGcc).emacsWithPackages (epkgs: [
+    ]))
     mu
     binutils
     zstd
     emacs-all-the-icons-fonts
+    imagemagick
     rnix-lsp
     gnutls
     isync
     ispell
-  ];
+  ];  
 }
