@@ -1,0 +1,147 @@
+{
+   "checksum": "f57800a25aec0917975af294e09c2d6c",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13283371679949698",
+            "guid": "75204cc8-0ffc-42fc-9340-80995b6c5039",
+            "id": "17",
+            "name": "YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/"
+         }, {
+            "date_added": "13283189154785306",
+            "guid": "25c0b2ed-a0bc-4d5b-afc9-92892f20d7d2",
+            "id": "5",
+            "name": "forsen - Twitch",
+            "type": "url",
+            "url": "https://www.twitch.tv/forsen"
+         }, {
+            "date_added": "13283189162367055",
+            "guid": "d9b18db0-0ac8-419d-8123-bc687376d3e4",
+            "id": "6",
+            "name": "Your Repositories",
+            "type": "url",
+            "url": "https://github.com/RD-png?tab=repositories"
+         }, {
+            "date_added": "13283189199699569",
+            "guid": "78f30b9a-4818-4c61-8be5-93059379b258",
+            "id": "7",
+            "name": "Facebook",
+            "type": "url",
+            "url": "https://www.facebook.com/"
+         }, {
+            "date_added": "13284852234254768",
+            "guid": "06cc16dc-4f66-4baa-bd5b-dcb8f1830147",
+            "id": "25",
+            "name": "Based Cooking",
+            "type": "url",
+            "url": "https://based.cooking/"
+         }, {
+            "date_added": "13287099679166652",
+            "guid": "815216d2-79e8-4d38-bf35-108d77f0d419",
+            "id": "27",
+            "name": "mit-scheme-ref.pdf",
+            "type": "url",
+            "url": "https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref.pdf"
+         }, {
+            "children": [ {
+               "date_added": "13283713532631404",
+               "guid": "6c7a7962-d643-4d95-ba1f-1c161fa7aa0b",
+               "id": "19",
+               "name": "Hello from Emacs Docs | Emacs Docs",
+               "type": "url",
+               "url": "https://www.emacsdocs.org/"
+            }, {
+               "date_added": "13283210402647040",
+               "guid": "390e4160-a4bc-4300-89ec-77cbb80e972b",
+               "id": "10",
+               "name": "M-x emacs-reddit",
+               "type": "url",
+               "url": "https://www.reddit.com/r/emacs/"
+            } ],
+            "date_added": "13287099743783074",
+            "date_modified": "13287099760026446",
+            "guid": "2fe974f4-35ad-4c4d-b057-566a9a6dc39c",
+            "id": "28",
+            "name": "Emacs",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13283213740168082",
+               "guid": "52bceb95-94af-4e12-9cb2-e7a06f64a8d0",
+               "id": "13",
+               "name": "Nix (builtins) & Nixpkgs (lib) Functions",
+               "type": "url",
+               "url": "https://teu5us.github.io/nix-lib.html"
+            }, {
+               "date_added": "13283211258976718",
+               "guid": "fbe5902a-9b74-43bc-a53e-a20ba5ff132f",
+               "id": "11",
+               "name": "pinpox/nixos: My NixOS Configurations",
+               "type": "url",
+               "url": "https://github.com/pinpox/nixos"
+            }, {
+               "date_added": "13283196871496766",
+               "guid": "575ee028-4e13-43ec-aee2-34b9db47b5fc",
+               "id": "8",
+               "name": "jonringer/nixpkgs-config: ~/.config/nixpkgs",
+               "type": "url",
+               "url": "https://github.com/jonringer/nixpkgs-config"
+            }, {
+               "date_added": "13283197734781530",
+               "guid": "d378e214-a874-49ea-8cb1-f6c727e35eb6",
+               "id": "9",
+               "name": "https://www.reddit.com/r/NixOS/",
+               "type": "url",
+               "url": "https://www.reddit.com/r/NixOS/"
+            } ],
+            "date_added": "13287099766418820",
+            "date_modified": "13287171193326851",
+            "guid": "4de3c608-6550-488b-89ec-d11af62622aa",
+            "id": "29",
+            "name": "Nix",
+            "type": "folder"
+         }, {
+            "date_added": "13287171193326851",
+            "guid": "827a666f-3b57-402b-8e6e-ac6964104406",
+            "id": "32",
+            "name": "hmemcpy/milewski-ctfp-pdf: Bartosz Milewski's 'Category Theory for Programmers' unofficial PDF and LaTeX source",
+            "type": "url",
+            "url": "https://github.com/hmemcpy/milewski-ctfp-pdf"
+         }, {
+            "date_added": "13287171176381611",
+            "guid": "51b81bb6-977e-4143-a1ba-c69cc535eab2",
+            "id": "31",
+            "name": "The Scheme Programming Language, 4th Edition",
+            "type": "url",
+            "url": "https://www.scheme.com/tspl4/"
+         } ],
+         "date_added": "13283188385083094",
+         "date_modified": "13287171228063996",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13283188385083095",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13283188385083096",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
