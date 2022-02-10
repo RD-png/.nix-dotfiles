@@ -126,8 +126,8 @@
     };
     shellAliases = {
       nixRF = "sudo nixos-rebuild switch --flake .#`uname -n`";
-      ls = "exa --long --header --icons --git --group-directories-first -a";
-      l = "exa --long --header --icons --git --group-directories-first";
+      ls = "exa --long --header --icons --group-directories-first -a";
+      l = "exa --long --header --icons --group-directories-first";
       grep = "grep --color=auto";
       diff = "diff --color=auto";
       npmig = "npm install -g --unsafe-perm";
