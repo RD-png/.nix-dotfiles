@@ -10,7 +10,8 @@
     sublime4
     inkscape
     firefox
-    brave    
+    brave
+    libvterm
 
     ## Programming
     texlive.combined.scheme-full
@@ -29,6 +30,8 @@
     gcc
     ghc
     php
+    go
+    gopls
     # Python packages
     python39Packages.python-lsp-server
     python39Packages.setuptools

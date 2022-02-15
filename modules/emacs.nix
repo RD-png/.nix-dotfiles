@@ -3,6 +3,7 @@
   services.emacs.package = pkgs.emacsGcc;
   home.packages = with pkgs; [
     ((emacsPackagesNgGen emacsGcc).emacsWithPackages (epkgs: [
+      epkgs.vterm
     ]))
     mu
     binutils
