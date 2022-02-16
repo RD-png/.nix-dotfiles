@@ -140,7 +140,7 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome ];
+    fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman ];
   };
 
   programs = {

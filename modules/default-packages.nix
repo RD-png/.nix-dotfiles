@@ -12,6 +12,7 @@
     inkscape
     firefox
     brave
+    libvterm
     flameshot
 
     ## Programming
@@ -31,7 +32,8 @@
     gcc
     ghc
     php
-    go    
+    go
+    gopls
     # Python packages
     python39Packages.python-lsp-server
     python39Packages.setuptools
