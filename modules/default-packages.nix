@@ -7,10 +7,12 @@
     xfce.xfconf
     xfce.exo
     alacritty
+    discord
     sublime4
     inkscape
     firefox
-    brave    
+    brave
+    flameshot
 
     ## Programming
     texlive.combined.scheme-full
@@ -29,6 +31,7 @@
     gcc
     ghc
     php
+    go    
     # Python packages
     python39Packages.python-lsp-server
     python39Packages.setuptools
@@ -43,6 +46,7 @@
     nodePackages.npm
     nodePackages.vls
     nodePackages."@vue/cli"
+    yarn
 
     ## Utils
     # pkgs.nur.repos.reedrw.picom-next-ibhagwan
