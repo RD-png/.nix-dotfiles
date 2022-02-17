@@ -34,6 +34,11 @@
     php
     go
     gopls
+    erlang
+    erlang-ls
+    ocaml
+    ocamlPackages.ocaml-lsp
+    
     # Python packages
     python39Packages.python-lsp-server
     python39Packages.setuptools

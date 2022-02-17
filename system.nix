@@ -120,7 +120,7 @@
       XMONAD_DATA_DIR = "$XDG_CONFIG_HOME/xmonad";
       VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
-      BROWSER = "firefox";
+      BROWSER = "brave";
       TERMINAL = "alacritty";
       EDITOR = "emacs";
     };
