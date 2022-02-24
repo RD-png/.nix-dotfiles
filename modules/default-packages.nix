@@ -32,7 +32,7 @@
     gcc
     ghc
     php
-    go
+    go_1_18
     gopls
     erlang
     erlang-ls

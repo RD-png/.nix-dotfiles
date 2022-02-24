@@ -2,7 +2,7 @@
   services.emacs.enable = true;
   services.emacs.package = pkgs.emacsGcc;
   home.packages = with pkgs; [
-    ((emacsPackagesNgGen emacsGcc).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacsGcc).emacsWithPackages (epkgs: [
       epkgs.vterm
     ]))
     mu
