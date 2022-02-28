@@ -14,6 +14,7 @@
     brave
     libvterm
     flameshot
+    pamixer
 
     ## Programming
     texlive.combined.scheme-full

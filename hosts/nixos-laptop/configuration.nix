@@ -2,6 +2,13 @@
   imports = [ ./hardware-configuration.nix ];
   
   networking.hostName = "nixos-laptop";
+
+  hardware = {
+    trackpoint = {
+      enable = true;
+      emulateWheel = true;
+    };
+  };
   
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
