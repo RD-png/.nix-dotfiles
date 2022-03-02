@@ -41,7 +41,6 @@ terminal = "alacritty"
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
-
     # Window Movement
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
@@ -49,12 +48,10 @@ keys = [
     Key([mod], "k", lazy.layout.previous()),
     Key([mod], "o", lazy.next_screen()),
     Key([mod], "comma", lazy.prev_screen()),
-
     # Window Control
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "space", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
-
     # Window Arrangement
     Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
     Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
@@ -65,7 +62,6 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
     Key([mod], "t", lazy.layout.normalize()),
-
     # Spawn Programs
     Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
     Key([mod], "w", lazy.spawn("brave")),
@@ -74,7 +70,6 @@ keys = [
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
     Key([mod, "shift"], "Return", lazy.spawn("thunar")),
     Key([mod], "Return", lazy.spawn(terminal)),
-
     # Qtile Config Commands
     Key([mod, "shift"], "r", lazy.reload_config()),
     Key([mod, "shift"], "q", lazy.shutdown()),
@@ -83,25 +78,35 @@ keys = [
 groups = [Group(i) for i in "123456789"]
 
 for i in groups:
-    keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(toggle=True),
-            desc="Switch to group {}".format(i.name)),
+    keys.extend(
+        [
+            # mod1 + letter of group = switch to group
+            Key(
+                [mod],
+                i.name,
+                lazy.group[i.name].toscreen(toggle=True),
+                desc="Switch to group {}".format(i.name),
+            ),
+            # mod1 + shift + letter of group = switch to & move focused window to group
+            Key(
+                [mod, "shift"],
+                i.name,
+                lazy.window.togroup(i.name, switch_group=True),
+                desc="Switch to & move focused window to group {}".format(i.name),
+            ),
+            # Or, use below if you prefer not to switch to that group.
+            # # mod1 + shift + letter of group = move focused window to group
+            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+            #     desc="move focused window to group {}".format(i.name)),
+        ]
+    )
 
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
-    ])
-
-    layout_theme = {"border_width": 3,
-                    "margin": 0,
-                    "border_focus": "#005577",
-                    "border_normal": "#444444",
-                    }
+    layout_theme = {
+        "border_width": 3,
+        "margin": 0,
+        "border_focus": "#005577",
+        "border_normal": "#444444",
+    }
 
 layouts = [
     layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
@@ -109,7 +114,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font='monospace',
+    font="monospace",
     fontsize=12,
     padding=2,
 )
@@ -120,30 +125,35 @@ def cus_battery():
     if socket.gethostname() == "nixos-laptop":
         return widget.Battery(
             padding=3,
-            low_percentage=0.20,
-            low_foreground="#ff5555",
+            low_percentage=0.25,
+            charge_char='^',
+            low_foreground="FF0000",
             update_delay=15,
-            format='[ BAT: {percent:.0%} ]',
-            )
-    return widget.TextBox(
-        text='',
-        padding=0,
-        fontsize=0
-    )
+            format="[BAT  {percent:.0%}{char} | {hour:d}:{min:02d}]",
+        )
+    return widget.TextBox(text="", padding=0, fontsize=0)
 
 
 screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(highlight_method="line", highlight_color="#005577", padding_x=7, borderwidth=0, margin_x=0, disable_drag=True, block_highlight_text_color="FFFFFF"),
+                widget.GroupBox(
+                    highlight_method="line",
+                    highlight_color="#005577",
+                    padding_x=7,
+                    borderwidth=0,
+                    margin_x=0,
+                    disable_drag=True,
+                    block_highlight_text_color="FFFFFF",
+                ),
                 widget.Prompt(),
                 widget.WindowName(
                     background="#005577",
                 ),
                 widget.Chord(
                     chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
+                        "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
@@ -153,14 +163,17 @@ screens = [
                     padding=2,
                     format="[CPU  {load_percent:2.0f}%]",
                     update_interval=2.0,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -t dropdown_cpu -e btm')},
-                 ),
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(
+                            terminal + " -t dropdown_cpu -e btm"
+                        )
+                    },
+                ),
                 widget.Memory(
-                 format="[RAM  {MemPercent:2.0f}%]",
-                 update_interval=2.0,
-                 ),
-                widget.Clock(format='(%Y-%m-%d) (%a) %H:%M'),
-
+                    format="[RAM  {MemPercent:2.0f}%]",
+                    update_interval=2.0,
+                ),
+                widget.Clock(format="(%Y-%m-%d) (%a) %H:%M"),
             ],
             size=26,
             # opacity=0.6
@@ -171,14 +184,22 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(highlight_method="line", highlight_color="#005577", padding_x=7, borderwidth=0, margin_x=0, disable_drag=True, block_highlight_text_color="FFFFFF"),
+                widget.GroupBox(
+                    highlight_method="line",
+                    highlight_color="#005577",
+                    padding_x=7,
+                    borderwidth=0,
+                    margin_x=0,
+                    disable_drag=True,
+                    block_highlight_text_color="FFFFFF",
+                ),
                 widget.Prompt(),
                 widget.WindowName(
                     background="#005577",
                 ),
                 widget.Chord(
                     chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
+                        "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
@@ -188,14 +209,17 @@ screens = [
                     padding=2,
                     format="[CPU  {load_percent:2.0f}%]",
                     update_interval=2.0,
-                    mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(terminal + ' -t dropdown_cpu -e btm')},
-                 ),
+                    mouse_callbacks={
+                        "Button1": lambda: qtile.cmd_spawn(
+                            terminal + " -t dropdown_cpu -e btm"
+                        )
+                    },
+                ),
                 widget.Memory(
-                 format="[RAM  {MemPercent:2.0f}%]",
-                 update_interval=2.0,
-                 ),
-                widget.Clock(format='(%Y-%m-%d) (%a) %H:%M'),
-
+                    format="[RAM  {MemPercent:2.0f}%]",
+                    update_interval=2.0,
+                ),
+                widget.Clock(format="(%Y-%m-%d) (%a) %H:%M"),
             ],
             size=26,
             # opacity=0.6
@@ -207,11 +231,16 @@ screens = [
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
-         start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
-         start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
+    Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
 dgroups_key_binder = None
@@ -219,16 +248,18 @@ dgroups_app_rules = []  # type: List
 follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
-    Match(wm_class='confirmreset'),  # gitk
-    Match(wm_class='makebranch'),  # gitk
-    Match(wm_class='maketag'),  # gitk
-    Match(wm_class='ssh-askpass'),  # ssh-askpass
-    Match(title='branchdialog'),  # gitk
-    Match(title='pinentry'),  # GPG key password entry
-])
+floating_layout = layout.Floating(
+    float_rules=[
+        # Run the utility of `xprop` to see the wm class and name of an X client.
+        *layout.Floating.default_float_rules,
+        Match(wm_class="confirmreset"),  # gitk
+        Match(wm_class="makebranch"),  # gitk
+        Match(wm_class="maketag"),  # gitk
+        Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="branchdialog"),  # gitk
+        Match(title="pinentry"),  # GPG key password entry
+    ]
+)
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -242,7 +273,9 @@ auto_minimize = True
 def _swallow(window):
     pid = window.window.get_net_wm_pid()
     ppid = psutil.Process(pid).ppid()
-    cpids = {c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()}
+    cpids = {
+        c.window.get_net_wm_pid(): wid for wid, c in window.qtile.windows_map.items()
+    }
     for i in range(5):
         if not ppid:
             return
@@ -256,15 +289,15 @@ def _swallow(window):
 
 @hook.subscribe.client_killed
 def _unswallow(window):
-    if hasattr(window, 'parent'):
+    if hasattr(window, "parent"):
         window.parent.minimized = False
 
 
 @hook.subscribe.startup_once
 def start_once():
     """Run setup script on startup."""
-    home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/setup.sh'])
+    home = os.path.expanduser("~")
+    subprocess.call([home + "/.config/qtile/setup.sh"])
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
