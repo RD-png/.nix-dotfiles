@@ -39,6 +39,9 @@
     erlang-ls
     ocaml
     ocamlPackages.ocaml-lsp
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.intelephense
     
     # Python packages
     python39Packages.python-lsp-server

@@ -68,6 +68,7 @@ keys = [
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([mod, "shift"], "p", lazy.spawn("postman")),
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
     Key([mod, "shift"], "Return", lazy.spawn("thunar")),
     Key([mod], "Return", lazy.spawn(terminal)),
     # Qtile Config Commands
