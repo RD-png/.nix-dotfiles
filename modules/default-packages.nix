@@ -11,6 +11,7 @@
     sublime4
     inkscape
     firefox
+    cachix
     brave
     libvterm
     flameshot

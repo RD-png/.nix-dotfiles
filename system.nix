@@ -172,6 +172,7 @@
       options = "--delete-older-than 30d";
     };
     settings = {
+      trusted-users = [ "root" "ryan" ];
       substituters = [ "https://nix-community.cachix.org/" ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
