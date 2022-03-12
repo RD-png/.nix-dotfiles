@@ -16,6 +16,7 @@
     libvterm
     flameshot
     pamixer
+    dmenu
 
     ## Programming
     texlive.combined.scheme-full

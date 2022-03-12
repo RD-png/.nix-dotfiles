@@ -3,12 +3,13 @@
   services = {
     xserver = {
       enable = true;
-      autorun = false;
       exportConfiguration = true;
       displayManager = {
-        lightdm.enable = true;
-        startx.enable = true;
         defaultSession = "none+qtile";
+        lightdm = {
+          enable = true;
+        };
+        startx.enable = true;
       };
       windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
@@ -150,6 +151,9 @@
       autosuggestions.enable = true;
       histFile = "$XDG_CONFIG_HOME/zsh/zsh_history";
     };
+    fish = {
+      enable = true;
+    };
   };
 
   users = {
@@ -158,7 +162,7 @@
       home = "/home/ryan";
       description = "Ryan User";
       extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" ];
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };
   };
