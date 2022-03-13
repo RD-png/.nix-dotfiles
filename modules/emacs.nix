@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsGcc;
+  services.emacs.package = pkgs.emacsPgtkGcc;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsGcc).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacsPgtkGcc).emacsWithPackages (epkgs: [
       epkgs.vterm
     ]))
     mu
