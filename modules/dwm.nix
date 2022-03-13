@@ -1,9 +1,12 @@
-{ inputs, config, pkgs, lib, ... }:
-{
+{ config, pkgs, lib, ... }:
+let
+  configDir = config.home.homeDirectory;
+in {
   nixpkgs.overlays = [
     (self: super: {
       dwm = super.dwm.overrideAttrs (oldAttrs: rec {
-        configFile = super.writeText "config.h" (builtins.readFile /home/ryan/.config/dwm/config.h);
+        # REVIEW: This requires impure eval.
+        configFile = super.writeText "config.h" (builtins.readFile "${configDir}/.config/dwm/config.h");
         postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
         patches = [
           (super.fetchpatch {
@@ -22,14 +25,16 @@
             url = "https://dwm.suckless.org/patches/swallow/dwm-swallow-20201211-61bb8b2.diff";
             sha256 = "03553nrd6njkqg42ckwcmf08nzcn20w818a56nxb2771cc23l6gj";
           })
+          
           # (super.fetchpatch {
           #   url = "https://dwm.suckless.org/patches/systray/dwm-systray-6.3.diff";
           #   sha256 = "1plzfi5l8zwgr8zfjmzilpv43n248n4178j98qdbwpgb4r793mdj";
           # })
         ];
       });
+      # REVIEW: This requires impure eval.
       slstatus = super.slstatus.overrideAttrs (oldAttrs: rec {
-        configFile = super.writeText "config.h" (builtins.readFile /home/ryan/.config/slstatus/config.h);
+        configFile = super.writeText "config.h" (builtins.readFile "${configDir}/.config/slstatus/config.h");
         postPatch = oldAttrs.postPatch or "" + "\necho 'Using own config file...'\n cp ${configFile} config.def.h";
       });
     })
