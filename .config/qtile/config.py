@@ -127,12 +127,31 @@ def cus_battery():
         return widget.Battery(
             padding=3,
             low_percentage=0.25,
-            charge_char='^',
+            charge_char="^",
             low_foreground="FF0000",
             update_delay=15,
             format="[BAT  {percent:.0%}{char} | {hour:d}:{min:02d}]",
         )
     return widget.TextBox(text="", padding=0, fontsize=0)
+
+
+colors = [
+    ["#D9E0EE", "#D9E0EE"],  # foreground
+    ["#161320", "#161320"],  # background
+    ["#3b4252", "#3b4252"],  # background lighter
+    ["#F28FAD", "#F28FAD"],  # red
+    ["#ABE9B3", "#ABE9B3"],  # green
+    ["#FAE3B0", "#FAE3B0"],  # yellow
+    ["#96CDFB", "#96CDFB"],  # blue
+    ["#DDB6F2", "#DDB6F2"],  # magenta
+    ["#89DCEB", "#89DCEB"],  # cyan
+    ["#C3BAC6", "#C3BAC6"],  # white
+    ["#6E6C7E", "#6E6C7E"],  # grey
+    ["#F8BD96", "#F8BD96"],  # orange
+    ["#96CDFB", "#96CDFB"],  # super cyan
+    ["#5e81ac", "#5e81ac"],  # super blue
+    ["#242831", "#242831"],  # super dark background
+]
 
 
 screens = [
@@ -142,7 +161,7 @@ screens = [
                 widget.GroupBox(
                     highlight_method="line",
                     highlight_color="#005577",
-                    padding_x=7,
+                    padding_x=6,
                     borderwidth=0,
                     margin_x=0,
                     disable_drag=True,
@@ -159,24 +178,75 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
                 cus_battery(),
+                # widget.PulseVolume(
+                #     # fmt=" {}",
+                #     volume_app="pamixer",
+                #     update_interval="1",
+                #     get_volume_command="pamixer --get-volume-human",
+                #     check_mute_command="pamixer --get-mute",
+                #     check_mute_string="true",
+                #     volume_up_command="pamixer -i 2",
+                #     volume_down_command="pamixer -d 2",
+                #     mute_command="pamixer -t",
+                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
+                # ),
+                # widget.Sep(
+                #     linewidth=0,
+                #     padding=10,
+                #     size_percent=50,
+                # ),
+                widget.TextBox(
+                    # background=colors[1],
+                    foreground=colors[7],
+                    text="",
+                    font="Font Awesome 5 Free Solid",
+                ),
                 widget.CPU(
-                    padding=2,
-                    format="[CPU  {load_percent:2.0f}%]",
-                    update_interval=2.0,
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(
-                            terminal + " -t dropdown_cpu -e btm"
-                        )
-                    },
+                    # background=colors[1],
+                    foreground=colors[0],
+                    update_interval=1,
+                    format="{load_percent: 2.0f} %",
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 5 Free Solid",
+                    # background=colors[1],
+                    foreground=colors[6],
                 ),
                 widget.Memory(
-                    format="[RAM  {MemPercent:2.0f}%]",
-                    update_interval=2.0,
+                    # background=colors[1],
+                    foreground=colors[0],
+                    format="{MemPercent: .0f} %",
                 ),
-                widget.Clock(format="(%Y-%m-%d) (%a) %H:%M"),
+                widget.Sep(
+                    # background=colors[1],
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                # widget.Memory(
+                #     format="[RAM  {MemPercent:2.0f}%]",
+                #     update_interval=2.0,
+                # ),
+                widget.TextBox(
+                    foreground=colors[4],
+                    text=" ",
+                    font="Font Awesome 5 Free Solid",
+                ),
+                widget.Clock(format="%a %Y-%m-%d %H:%M"),
             ],
-            size=26,
+            size=22,
             # opacity=0.6
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta

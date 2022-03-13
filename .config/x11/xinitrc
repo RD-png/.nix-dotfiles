@@ -12,4 +12,5 @@ then
 fi
 
 # slstatus &
+dunst &
 exec qtile

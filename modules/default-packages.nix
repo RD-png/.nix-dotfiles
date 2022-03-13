@@ -16,6 +16,8 @@
     libvterm
     flameshot
     pamixer
+    libnotify
+    dunst
     dmenu
     acpi
 
