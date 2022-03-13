@@ -120,7 +120,7 @@ groups.append(
         "scratchpad",
         [
             DropDown(
-                "term", "alacritty", width=0.4, height=0.5, x=0.3, y=0.1, opacity=1
+                "term", "alacritty", width=0.5, height=0.5, x=0.275, y=0.2, opacity=1
             ),
         ],
     )
@@ -141,20 +141,6 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-
-def cus_battery():
-    if socket.gethostname() == "nixos-laptop":
-        return widget.Battery(
-            padding=3,
-            low_percentage=0.25,
-            charge_char="^",
-            low_foreground="FF0000",
-            update_delay=15,
-            format="[BAT  {percent:.0%}{char} | {hour:d}:{min:02d}]",
-        )
-    return widget.TextBox(text="", padding=0, fontsize=0)
-
-
 colors = [
     ["#D9E0EE", "#D9E0EE"],  # foreground
     ["#161320", "#161320"],  # background
@@ -172,6 +158,27 @@ colors = [
     ["#5e81ac", "#5e81ac"],  # super blue
     ["#242831", "#242831"],  # super dark background
 ]
+
+
+def cus_battery():
+    if socket.gethostname() == "nixos-laptop":
+        return widget.Battery(
+            padding=3,
+            charge_char="+",
+            discharge_char="-",
+            update_delay=15,
+            format="{percent:.0%}{char}",
+        )
+    return widget.TextBox(text="", padding=0, fontsize=0)
+
+
+def cus_battery_icon():
+    if socket.gethostname() == "nixos-laptop":
+        return widget.TextBox(
+            foreground=colors[4],
+            text="",
+            font="Font Awesome 5 Free Solid",
+        )
 
 
 screens = [
@@ -203,7 +210,13 @@ screens = [
                     padding=10,
                     size_percent=50,
                 ),
+                cus_battery_icon(),
                 cus_battery(),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
                 # widget.PulseVolume(
                 #     # fmt=" {}",
                 #     volume_app="pamixer",
@@ -222,16 +235,14 @@ screens = [
                 #     size_percent=50,
                 # ),
                 widget.TextBox(
-                    # background=colors[1],
                     foreground=colors[7],
                     text="",
                     font="Font Awesome 5 Free Solid",
                 ),
                 widget.CPU(
-                    # background=colors[1],
                     foreground=colors[0],
                     update_interval=1,
-                    format="{load_percent: 2.0f} %",
+                    format="{load_percent: 2.0f}%",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -241,35 +252,25 @@ screens = [
                 widget.TextBox(
                     text="",
                     font="Font Awesome 5 Free Solid",
-                    # background=colors[1],
                     foreground=colors[6],
                 ),
                 widget.Memory(
-                    # background=colors[1],
                     foreground=colors[0],
-                    format="{MemPercent: .0f} %",
+                    format="{MemPercent: .0f}%",
                 ),
                 widget.Sep(
-                    # background=colors[1],
                     linewidth=0,
                     padding=10,
                     size_percent=50,
                 ),
-                # widget.Memory(
-                #     format="[RAM  {MemPercent:2.0f}%]",
-                #     update_interval=2.0,
-                # ),
                 widget.TextBox(
-                    foreground=colors[4],
+                    foreground=colors[13],
                     text=" ",
                     font="Font Awesome 5 Free Solid",
                 ),
                 widget.Clock(format="%a %Y-%m-%d %H:%M"),
             ],
             size=22,
-            # opacity=0.6
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),
     Screen(
@@ -278,7 +279,7 @@ screens = [
                 widget.GroupBox(
                     highlight_method="line",
                     highlight_color="#005577",
-                    padding_x=7,
+                    padding_x=6,
                     borderwidth=0,
                     margin_x=0,
                     disable_drag=True,
@@ -295,27 +296,72 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                cus_battery_icon(),
                 cus_battery(),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                # widget.PulseVolume(
+                #     # fmt=" {}",
+                #     volume_app="pamixer",
+                #     update_interval="1",
+                #     get_volume_command="pamixer --get-volume-human",
+                #     check_mute_command="pamixer --get-mute",
+                #     check_mute_string="true",
+                #     volume_up_command="pamixer -i 2",
+                #     volume_down_command="pamixer -d 2",
+                #     mute_command="pamixer -t",
+                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
+                # ),
+                # widget.Sep(
+                #     linewidth=0,
+                #     padding=10,
+                #     size_percent=50,
+                # ),
+                widget.TextBox(
+                    foreground=colors[7],
+                    text="",
+                    font="Font Awesome 5 Free Solid",
+                ),
                 widget.CPU(
-                    padding=2,
-                    format="[CPU  {load_percent:2.0f}%]",
-                    update_interval=2.0,
-                    mouse_callbacks={
-                        "Button1": lambda: qtile.cmd_spawn(
-                            terminal + " -t dropdown_cpu -e btm"
-                        )
-                    },
+                    foreground=colors[0],
+                    update_interval=1,
+                    format="{load_percent: 2.0f}%",
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.TextBox(
+                    text="",
+                    font="Font Awesome 5 Free Solid",
+                    foreground=colors[6],
                 ),
                 widget.Memory(
-                    format="[RAM  {MemPercent:2.0f}%]",
-                    update_interval=2.0,
+                    foreground=colors[0],
+                    format="{MemPercent: .0f}%",
                 ),
-                widget.Clock(format="(%Y-%m-%d) (%a) %H:%M"),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.TextBox(
+                    foreground=colors[13],
+                    text=" ",
+                    font="Font Awesome 5 Free Solid",
+                ),
+                widget.Clock(format="%a %Y-%m-%d %H:%M"),
             ],
-            size=26,
-            # opacity=0.6
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            size=22,
         ),
     ),
 ]
