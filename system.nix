@@ -3,12 +3,15 @@
   services = {
     xserver = {
       enable = true;
-      autorun = false;
+      # autorun = false;
       exportConfiguration = true;
       displayManager = {
+        defaultSession = "none+qtile";
+        lightdm.enable = true;
         startx.enable = true;
+        
       };
-      # windowManager = { dwm = with pkgs; { enable = true; }; };
+      windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;

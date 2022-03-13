@@ -11,5 +11,5 @@ then
     xrandr --output DP-1 --mode 1920x1080 --left-of VGA-1
 fi
 
-slstatus &
-exec dwm
+# slstatus &
+exec qtile
