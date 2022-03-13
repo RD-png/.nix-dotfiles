@@ -1,3 +1,4 @@
+slstatus &
 exec dwm
 if [[ "$(uname -n)" = "nixos-desktop" ]]
 then

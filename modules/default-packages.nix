@@ -17,6 +17,7 @@
     flameshot
     pamixer
     dmenu
+    acpi
 
     ## Programming
     texlive.combined.scheme-full
