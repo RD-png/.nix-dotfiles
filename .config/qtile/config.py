@@ -32,7 +32,7 @@ from typing import List  # noqa: F401
 
 from libqtile import qtile, hook
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 
 mod = "mod4"
@@ -113,6 +113,26 @@ layouts = [
     layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
     layout.Max(),
 ]
+
+# Append scratchpad with dropdowns to groups
+groups.append(
+    ScratchPad(
+        "scratchpad",
+        [
+            DropDown(
+                "term", "alacritty", width=0.4, height=0.5, x=0.3, y=0.1, opacity=1
+            ),
+        ],
+    )
+)
+# extend keys list with keybinding for scratchpad
+keys.extend(
+    [
+        Key(
+            [mod, "control"], "Return", lazy.group["scratchpad"].dropdown_toggle("term")
+        ),
+    ]
+)
 
 widget_defaults = dict(
     font="monospace",
