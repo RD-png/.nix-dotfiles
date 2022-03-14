@@ -178,7 +178,8 @@ def cus_battery_icon():
             foreground=colors[4],
             text="",
             font="Font Awesome 5 Free Solid",
-        )
+            )
+    return widget.TextBox(text="", padding=0, fontsize=0)
 
 
 screens = [
