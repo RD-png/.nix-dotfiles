@@ -5,6 +5,7 @@ end
 abbr -a nixRF 'sudo nixos-rebuild switch --flake .#(uname -n)'
 
 set fish_greeting
+set TERM "xterm-256color"
 set FISH_CLIPBOARD_CMD "cat"
 
 set __fish_git_prompt_showuntrackedfiles 'yes'
@@ -35,3 +36,43 @@ function fish_prompt
 	echo -n '# '
 	set_color normal
 end
+
+function __delete-line
+   commandline -f beginning-of-line
+   commandline -f kill-line
+end
+
+function __history_previous_command
+  switch (commandline -t)
+  case "!"
+    commandline -t $history[1]; commandline -f repaint
+  case "*"
+    commandline -i !
+  end
+end
+
+function __history_previous_command_arguments
+  switch (commandline -t)
+  case "!"
+    commandline -t ""
+    commandline -f history-token-search-backward
+  case "*"
+    commandline -i '$'
+  end
+end
+
+# Custom binds
+bind \cg cancel
+bind \cH backward-kill-word
+bind \cw __delete-line
+bind ! __history_previous_command
+bind '$' __history_previous_command_arguments
+
+# Alias
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+
+# bind \t accept-autosuggestion
+# bind \t\t complete
