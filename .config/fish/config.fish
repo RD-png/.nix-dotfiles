@@ -61,12 +61,35 @@ function __history_previous_command_arguments
   end
 end
 
+function __select_from_last
+   set -l FZF_OUT (eval $history[1] | fzf)
+   if test -n "$FZF_OUT"
+     commandline -r $FZF_OUT
+     commandline --cursor 0
+   end
+end
+
+function fish_clipboard_copy
+	if type -q pbcopy
+        commandline | pbcopy
+    else if type -q xsel
+        commandline | xsel --clipboard
+    end
+end
+
 # Custom binds
 bind \cg cancel
 bind \cH backward-kill-word
 bind \cw __delete-line
+bind \er __select_from_last
+bind \ew fish_clipboard_copy
+bind \ey fish_clipboard_paste
 bind ! __history_previous_command
 bind '$' __history_previous_command_arguments
+bind \ct transpose-chars
+bind \et transpose-words
+bind \ec upcase-word
+bind \cc capitalize-word
 
 # Alias
 alias cp="cp -i"

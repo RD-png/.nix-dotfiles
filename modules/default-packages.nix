@@ -20,6 +20,8 @@
     dunst
     dmenu
     acpi
+    fzf
+    xsel
 
     ## Programming
     texlive.combined.scheme-full
