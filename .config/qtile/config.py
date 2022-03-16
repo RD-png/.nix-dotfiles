@@ -66,6 +66,9 @@ keys = [
     Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
+    Key([mod], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 10")),
+    Key([mod], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 10")),
+    Key([mod], "XF86AudioMute", lazy.spawn("pamixer -t")),
     Key([mod, "shift"], "p", lazy.spawn("postman")),
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
@@ -178,7 +181,7 @@ def cus_battery_icon():
             foreground=colors[4],
             text="",
             font="Font Awesome 5 Free Solid",
-            )
+        )
     return widget.TextBox(text="", padding=0, fontsize=0)
 
 
