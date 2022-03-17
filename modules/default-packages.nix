@@ -22,6 +22,8 @@
     acpi
     fzf
     xsel
+    chromium
+    mitscheme
 
     ## Programming
     texlive.combined.scheme-full

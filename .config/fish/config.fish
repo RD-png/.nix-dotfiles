@@ -77,6 +77,16 @@ function fish_clipboard_copy
     end
 end
 
+function init_flake
+    if ! test -e flake.nix
+         nix flake new -t github:nix-community/nix-direnv .
+         direnv allow
+    end
+
+    git init
+    git add flake.nix
+end
+
 # Custom binds
 bind \cg cancel
 bind \cH backward-kill-word
@@ -89,7 +99,6 @@ bind '$' __history_previous_command_arguments
 bind \ct transpose-chars
 bind \et transpose-words
 bind \ec upcase-word
-bind \cc capitalize-word
 
 # Alias
 alias cp="cp -i"
