@@ -24,6 +24,11 @@
     xsel
     chromium
     mitscheme
+    imagemagick
+    poppler
+    automake
+    zlib
+    libpng
 
     ## Programming
     texlive.combined.scheme-full
