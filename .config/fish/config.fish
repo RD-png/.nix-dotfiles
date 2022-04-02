@@ -62,10 +62,13 @@ function __history_previous_command_arguments
 end
 
 function __select_from_last
-   set -l FZF_OUT (eval $history[1] | fzf)
+   set -l FZF_OUT (eval $history[1] | fzf --multi)
    if test -n "$FZF_OUT"
      commandline -r $FZF_OUT
      commandline --cursor 0
+     fish_clipboard_copy
+     commandline (commandline --cut-at-cursor)
+     commandline -f repaint
    end
 end
 
@@ -104,7 +107,8 @@ bind \ec upcase-word
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
-
+alias cdd='fzf-cd-widget -e --tiebreak=length'
+alias cdf='fzf-file-widget -e'
 
 # bind \t accept-autosuggestion
 # bind \t\t complete

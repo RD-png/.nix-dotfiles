@@ -110,6 +110,7 @@
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
       XDG_RUNTIME_DIR = "/run/user/$UID";
+      FZF_DEFAULT_OPTS="--layout=reverse --height 40%";
       PATH = [ "$XDG_BIN_HOME" "$HOME/.config/npm/bin" ];
     };
     variables = {
