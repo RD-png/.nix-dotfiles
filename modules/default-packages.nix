@@ -6,7 +6,7 @@
     xfce.thunar
     xfce.xfconf
     xfce.exo
-    alacritty
+    kitty
     discord
     sublime4
     inkscape
@@ -29,6 +29,7 @@
     automake
     zlib
     libpng
+    mpv
 
     ## Programming
     texlive.combined.scheme-full

@@ -123,7 +123,7 @@
       VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
       BROWSER = "brave";
-      TERMINAL = "alacritty";
+      TERMINAL = "kitty";
       EDITOR = "emacs";
     };
     shellAliases = {
