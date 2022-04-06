@@ -9,7 +9,7 @@
         defaultSession = "none+qtile";
         lightdm.enable = true;
         startx.enable = true;
-        
+
       };
       windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
@@ -110,7 +110,7 @@
       XDG_DATA_HOME = "$HOME/.local/share";
       XDG_STATE_HOME = "$HOME/.local/state";
       XDG_RUNTIME_DIR = "/run/user/$UID";
-      FZF_DEFAULT_OPTS="--layout=reverse --height 40%";
+      FZF_DEFAULT_OPTS = "--layout=reverse --height 40%";
       PATH = [ "$XDG_BIN_HOME" "$HOME/.config/npm/bin" ];
     };
     variables = {
@@ -136,6 +136,7 @@
       cdp = "cd /var/htdocs/Projects";
       e = "emacsclient -n -c";
       cat = "bat";
+      icat = "kitty +kitten icat";
       startx = "startx $XINITRC";
     };
   };
