@@ -18,5 +18,6 @@ return {
     {key="0", mods="CTRL|META", action=wezterm.action{CloseCurrentPane={confirm=true}}},
     {key="q", mods="CTRL", action=wezterm.action{CloseCurrentTab={confirm=true}}},
     {key="f", mods="CTRL|META", action="TogglePaneZoomState" },
+    {key="o", mods="META", action=wezterm.action{ActivatePaneDirection="Next"}},
   }
 }
