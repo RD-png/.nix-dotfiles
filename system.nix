@@ -123,7 +123,7 @@
       VIMINIT = "$XDG_CONFIG_HOME/vim/vimrc";
       ZDOTDIR = "$XDG_CONFIG_HOME/zsh";
       BROWSER = "brave";
-      TERMINAL = "kitty";
+      TERMINAL = "wezterm";
       EDITOR = "emacs";
     };
     shellAliases = {
@@ -136,7 +136,7 @@
       cdp = "cd /var/htdocs/Projects";
       e = "emacsclient -n -c";
       cat = "bat";
-      icat = "kitty +kitten icat";
+      icat = "wezterm imgcat";      
       startx = "startx $XINITRC";
     };
   };

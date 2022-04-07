@@ -7,6 +7,7 @@
     xfce.xfconf
     xfce.exo
     kitty
+    wezterm
     discord
     sublime4
     inkscape
