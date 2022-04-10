@@ -6,8 +6,7 @@
     xfce.thunar
     xfce.xfconf
     xfce.exo
-    kitty
-    wezterm
+    alacritty
     discord
     sublime4
     inkscape

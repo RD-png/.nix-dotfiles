@@ -1,8 +1,10 @@
 local wezterm = require 'wezterm';
 return {
+       check_for_updates = false,
+       warn_about_missing_glyphs=false,
        automatically_reload_config = false,
        hide_tab_bar_if_only_one_tab = true,
-       font_size = 11.0,
+       font_size = 10.0,
 
   keys = {
     {key="n",     mods="CTRL|SHIFT", action=wezterm.action{ScrollByLine=1}},

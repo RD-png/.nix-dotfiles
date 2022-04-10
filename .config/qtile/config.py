@@ -36,7 +36,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, 
 from libqtile.lazy import lazy
 
 mod = "mod4"
-terminal = "wezterm"
+terminal = "alacritty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
