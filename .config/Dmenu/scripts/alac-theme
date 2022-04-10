@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+theme=$(printf "%s\n" modus-operandi modus-vivendi | dmenu -i -l 20 -p "Choose Theme:")
+
+if [[ "$theme" ]]; then  
+  ln -sf "/home/ryan/.config/alacritty/${theme}.yml" /home/ryan/.config/alacritty/modus-active.yml
+
+else
+  echo "Exited" && exit 1
+fi

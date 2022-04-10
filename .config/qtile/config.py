@@ -78,6 +78,12 @@ keys = [
     # Qtile Config Commands
     Key([mod, "shift"], "r", lazy.reload_config()),
     Key([mod, "shift"], "q", lazy.shutdown()),
+    # Misc
+    Key(
+        [mod, "shift"],
+        "t",
+        lazy.spawn(os.path.expanduser("~/.config/Dmenu/scripts/alac-theme")),
+    ),
 ]
 
 groups = [Group(i) for i in "123456789"]
