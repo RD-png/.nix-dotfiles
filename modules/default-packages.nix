@@ -29,7 +29,9 @@
     automake
     zlib
     libpng
-    mpv
+    mpv   
+    citrix_workspace
+
 
     ## Programming
     texlive.combined.scheme-full
@@ -51,7 +53,10 @@
     go_1_18
     gopls
     erlang
+    vscode
     erlang-ls
+    gnumake
+    rebar3
     ocaml
     ocamlPackages.ocaml-lsp
     nodePackages.typescript
