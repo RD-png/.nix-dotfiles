@@ -29,11 +29,14 @@ function fish_prompt
 	if [ $PWD != $HOME ]
 		set_color green
 		echo -n (basename $PWD)
+    else
+        set_color green
+        echo -n '~'
 	end
 	set_color brpurple
 	printf '%s ' (__fish_git_prompt)
 	set_color red
-	echo -n '# '
+	echo -n '% '
 	set_color normal
 end
 
