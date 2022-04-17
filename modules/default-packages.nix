@@ -80,8 +80,7 @@
     yarn
 
     ## Utils
-    # pkgs.nur.repos.reedrw.picom-next-ibhagwan
-    (ripgrep.override { withPCRE2 = true; })
+    ripgrep
     pavucontrol
     neofetch
     openssh
