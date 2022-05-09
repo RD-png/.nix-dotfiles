@@ -55,12 +55,18 @@
           ];
         };
 
-    in {
-      nixosConfigurations = builtins.listToAttrs (map (host: {
-        name = host;
-        value = nixUserFlake {
-          imports = [ (import (./hosts + "/${host}/configuration.nix")) ];
-        };
-      }) (builtins.attrNames (builtins.readDir ./hosts)));
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (map
+        (host: {
+          name = host;
+          value = nixUserFlake {
+            imports = [ (import (./hosts + "/${host}/configuration.nix")) ];
+          };
+        })
+        (builtins.attrNames (builtins.readDir ./hosts)));
+
+      devShell."${system}" =
+        import ./shell.nix { inherit pkgs; };
     };
 }
