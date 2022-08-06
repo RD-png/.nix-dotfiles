@@ -136,14 +136,13 @@
       cdp = "cd /var/htdocs/Projects";
       e = "emacsclient -n -c";
       cat = "bat";
-      icat = "wezterm imgcat";      
       startx = "startx $XINITRC";
     };
   };
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman ];
+    fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman fira-code ];
   };
 
   programs = {
