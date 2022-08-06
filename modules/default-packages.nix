@@ -29,9 +29,8 @@
     automake
     zlib
     libpng
-    mpv   
-    citrix_workspace
-
+    mpv
+    
 
     ## Programming
     texlive.combined.scheme-full
@@ -59,25 +58,6 @@
     rebar3
     ocaml
     ocamlPackages.ocaml-lsp
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.intelephense
-    
-    # Python packages
-    python39Packages.python-lsp-server
-    python39Packages.setuptools
-    python39Packages.virtualenv
-    python39Packages.ipython
-    python39Packages.pylint
-    python39Packages.flake8
-    python39Packages.black
-    python39Packages.pip
-    python39Full
-    # Node packages
-    nodePackages.npm
-    nodePackages.vls
-    nodePackages."@vue/cli"
-    yarn
 
     ## Utils
     ripgrep

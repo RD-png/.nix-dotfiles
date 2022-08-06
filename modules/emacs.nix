@@ -1,9 +1,10 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsPgtkGcc;
+  services.emacs.package = pkgs.emacsPgtkNativeComp;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsPgtkGcc).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacsPgtkNativeComp).emacsWithPackages (epkgs: [
       epkgs.vterm
+      epkgs.pdf-tools
     ]))
     mu
     binutils
@@ -13,6 +14,6 @@
     rnix-lsp
     gnutls
     isync
-    ispell
+    ispell    
   ];  
 }
