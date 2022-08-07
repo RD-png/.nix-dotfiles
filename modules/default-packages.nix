@@ -1,24 +1,4 @@
 { config, pkgs, libs, ... }:
-let
-  pinnedErlang = import
-    (builtins.fetchGit {
-      url = "https://github.com/NixOS/nixpkgs/";
-      ref = "refs/heads/nixpkgs-unstable";
-      rev = "2c9d2d65266c2c3aca1e4c80215de8bee5295b04";
-    })
-    { };
-
-  pinnedRebar3 = import
-    (builtins.fetchGit {
-      url = "https://github.com/NixOS/nixpkgs/";
-      ref = "refs/heads/nixpkgs-unstable";
-      rev = "8414d8386b9a6b855b291fb3f01a4e3b04c08bbb";
-    })
-    { };
-
-  rebar332 = pinnedRebar3.rebar3;
-  erlangR18 = pinnedErlang.erlang;
-in
 {
   home.packages = with pkgs; [
     ## General
@@ -69,15 +49,14 @@ in
     git
     gcc
     ghc
-    erlangR18
-    # erlang
+    erlang
 
     go_1_18
     gopls
     vscode
     erlang-ls
     gnumake
-    rebar332
+    rebar3
     ocaml
     ocamlPackages.ocaml-lsp
 
