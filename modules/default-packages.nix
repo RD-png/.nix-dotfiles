@@ -8,7 +8,16 @@ let
     })
     { };
 
-  erlangR18 = pinnedErlang.erlangR18;
+  pinnedRebar3 = import
+    (builtins.fetchGit {
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "8414d8386b9a6b855b291fb3f01a4e3b04c08bbb";
+    })
+    { };
+
+  rebar332 = pinnedRebar3.rebar3;
+  erlangR18 = pinnedErlang.erlang;
 in
 {
   home.packages = with pkgs; [
@@ -68,7 +77,7 @@ in
     vscode
     erlang-ls
     gnumake
-    rebar3
+    rebar332
     ocaml
     ocamlPackages.ocaml-lsp
 
