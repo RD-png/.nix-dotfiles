@@ -1,4 +1,16 @@
-{ config, pkgs, libs, ... }: {
+{ config, pkgs, libs, ... }:
+let
+  pinnedErlang = import
+    (builtins.fetchGit {
+      url = "https://github.com/NixOS/nixpkgs/";
+      ref = "refs/heads/nixpkgs-unstable";
+      rev = "2c9d2d65266c2c3aca1e4c80215de8bee5295b04";
+    })
+    { };
+
+  erlangR18 = pinnedErlang.erlangR18;
+in
+{
   home.packages = with pkgs; [
     ## General
     gnome-icon-theme
@@ -30,7 +42,7 @@
     zlib
     libpng
     mpv
-    
+
 
     ## Programming
     texlive.combined.scheme-full
@@ -48,10 +60,11 @@
     git
     gcc
     ghc
-    php
+    erlangR18
+    # erlang
+
     go_1_18
     gopls
-    erlang
     vscode
     erlang-ls
     gnumake
@@ -64,14 +77,14 @@
     pavucontrol
     neofetch
     openssh
-    exa    
+    exa
     picom
     sshfs
-    unzip    
+    unzip
     htop
     wget
     tldr
-    bat    
+    bat
     feh
     fd
     sd
