@@ -6,12 +6,14 @@
       # autorun = false;
       exportConfiguration = true;
       displayManager = {
-        defaultSession = "none+qtile";
+        defaultSession = "xfce";
         lightdm.enable = true;
         startx.enable = true;
-
       };
-      windowManager = { qtile = with pkgs; { enable = true; }; };
+      desktopManager = {
+        xfce.enable = true;
+      };
+      # windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
