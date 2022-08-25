@@ -43,6 +43,18 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (85%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (80%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (73%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (76%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (87%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (81%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (72%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (77%)"/>
+        <value type="string" value="requesting a wi-fi network address for “vm5300253”…"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (79%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (86%)"/>
+        <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (82%)"/>
         <value type="string" value="wi-fi network connection “vm5300253” active: vm5300253 (78%)"/>
         <value type="string" value="networkmanager applet"/>
       </property>

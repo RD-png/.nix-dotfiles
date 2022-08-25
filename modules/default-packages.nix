@@ -18,7 +18,6 @@
     flameshot
     pamixer
     libnotify
-    dunst
     dmenu
     acpi
     fzf

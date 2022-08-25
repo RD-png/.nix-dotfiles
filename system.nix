@@ -3,17 +3,14 @@
   services = {
     xserver = {
       enable = true;
-      # autorun = false;
       exportConfiguration = true;
       displayManager = {
         defaultSession = "xfce";
         lightdm.enable = true;
-        startx.enable = true;
       };
       desktopManager = {
         xfce.enable = true;
       };
-      # windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
@@ -21,7 +18,7 @@
     };
 
     picom = {
-      enable = true;
+      enable = false;
       backend = "glx";
       experimentalBackends = true;
       settings = {
@@ -29,7 +26,6 @@
           method = "kawase";
           strength = 75;
         };
-        # opacity-rule = [ "85:class_g    = 'Alacritty'" ];
       };
     };
 
@@ -72,16 +68,6 @@
         };
       };
     };
-
-    #   mysql = {
-    #     enable = true;
-    #     package = pkgs.mariadb;
-    #     ensureDatabases = [ "db" ];
-    #     ensureUsers = [{
-    #       name = "ryan";
-    #       ensurePermissions = { "db.*" = "ALL PRIVILEGES"; };
-    #     }];
-    #   };
 
     postgresql = {
       enable = true;

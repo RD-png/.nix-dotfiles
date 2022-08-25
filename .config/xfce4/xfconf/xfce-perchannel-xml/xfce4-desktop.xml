@@ -6,8 +6,10 @@
       <property name="monitorLVDS-1" type="empty">
         <property name="workspace0" type="empty">
           <property name="color-style" type="int" value="0"/>
-          <property name="image-style" type="int" value="5"/>
-          <property name="last-image" type="string" value="/nix/store/d1d6qzy2ynkhdq34gxh6qw5h502kj7l0-xfdesktop-4.16.0/share/backgrounds/xfce/xfce-verticals.png"/>
+          <property name="image-style" type="int" value="3"/>
+          <property name="last-image" type="string" value="/home/ryan/.config/qtile/photo-1510839154674-905169657821.jpeg"/>
+          <property name="backdrop-cycle-enable" type="bool" value="false"/>
+          <property name="backdrop-cycle-random-order" type="bool" value="false"/>
         </property>
         <property name="workspace1" type="empty">
           <property name="color-style" type="int" value="0"/>
@@ -25,6 +27,17 @@
           <property name="last-image" type="string" value="/nix/store/d1d6qzy2ynkhdq34gxh6qw5h502kj7l0-xfdesktop-4.16.0/share/backgrounds/xfce/xfce-verticals.png"/>
         </property>
       </property>
+    </property>
+  </property>
+  <property name="last" type="empty">
+    <property name="window-width" type="int" value="654"/>
+    <property name="window-height" type="int" value="558"/>
+  </property>
+  <property name="desktop-icons" type="empty">
+    <property name="file-icons" type="empty">
+      <property name="show-filesystem" type="bool" value="false"/>
+      <property name="show-home" type="bool" value="false"/>
+      <property name="show-trash" type="bool" value="false"/>
     </property>
   </property>
 </channel>
