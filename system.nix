@@ -1,5 +1,6 @@
 { inputs, config, pkgs, lib, ... }: {
   time.timeZone = "Europe/London";
+  virtualisation.virtualbox.host.enable = true;
   services = {
     xserver = {
       enable = true;
@@ -116,11 +117,9 @@
     };
     shellAliases = {
       nixRF = "sudo nixos-rebuild switch --flake .#`uname -n`";
-      ls = "exa --long --header --icons --group-directories-first -a";
-      l = "exa --long --header --icons --group-directories-first";
+      ls = "exa --long --header --icons --group-directories-first";
       grep = "grep --color=auto";
       diff = "diff --color=auto";
-      npmig = "npm install -g --unsafe-perm";
       cdp = "cd /var/htdocs/Projects";
       e = "emacsclient -n -c";
       cat = "bat";
@@ -150,7 +149,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" "vboxusers"];
       shell = pkgs.fish;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };

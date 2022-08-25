@@ -107,6 +107,8 @@ bind \et transpose-words
 bind \ec upcase-word
 
 # Alias
+alias lsd="ls -d .*/ */"
+alias lsa="ls -a"
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
