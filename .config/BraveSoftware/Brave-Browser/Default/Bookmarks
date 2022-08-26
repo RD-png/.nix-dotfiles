@@ -1,5 +1,5 @@
 {
-   "checksum": "f57800a25aec0917975af294e09c2d6c",
+   "checksum": "b4ab0b20078d87b22cfd16f8e4408501",
    "roots": {
       "bookmark_bar": {
          "children": [ {
@@ -17,6 +17,13 @@
             "type": "url",
             "url": "https://www.twitch.tv/forsen"
          }, {
+            "date_added": "13294617038001939",
+            "guid": "eddfe48f-5157-4560-9592-04c2add406ec",
+            "id": "40",
+            "name": "Ryan Denby · GitLab",
+            "type": "url",
+            "url": "https://gitlab.com/rd-png"
+         }, {
             "date_added": "13283189162367055",
             "guid": "d9b18db0-0ac8-419d-8123-bc687376d3e4",
             "id": "6",
@@ -30,13 +37,6 @@
             "name": "Facebook",
             "type": "url",
             "url": "https://www.facebook.com/"
-         }, {
-            "date_added": "13284852234254768",
-            "guid": "06cc16dc-4f66-4baa-bd5b-dcb8f1830147",
-            "id": "25",
-            "name": "Based Cooking",
-            "type": "url",
-            "url": "https://based.cooking/"
          }, {
             "date_added": "13287099679166652",
             "guid": "815216d2-79e8-4d38-bf35-108d77f0d419",
@@ -116,9 +116,30 @@
             "name": "The Scheme Programming Language, 4th Edition",
             "type": "url",
             "url": "https://www.scheme.com/tspl4/"
+         }, {
+            "date_added": "13294423975552585",
+            "guid": "d6f8dc65-0f81-4336-885f-74c6c1f60b39",
+            "id": "38",
+            "name": "Hacking Your First Package — nix-tutorial documentation",
+            "type": "url",
+            "url": "https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/first-package.html"
+         }, {
+            "date_added": "13302220800310681",
+            "guid": "0d7edcff-4558-4dcf-b586-af840180a0f5",
+            "id": "42",
+            "name": "dandelion/erlang at main · ferd/dandelion",
+            "type": "url",
+            "url": "https://github.com/ferd/dandelion/tree/main/erlang"
+         }, {
+            "date_added": "13304970243492882",
+            "guid": "8f50ac19-9046-42f9-bb6c-26df3e1763f5",
+            "id": "44",
+            "name": "OCaml Programming: Correct + Efficient + Beautiful — OCaml Programming: Correct + Efficient + Beautiful",
+            "type": "url",
+            "url": "https://cs3110.github.io/textbook/cover.html"
          } ],
          "date_added": "13283188385083094",
-         "date_modified": "13287171228063996",
+         "date_modified": "13305914143025796",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",
