@@ -24,6 +24,7 @@
     xsel
     chromium
     mitscheme
+    spotify
     imagemagick
     poppler
     automake

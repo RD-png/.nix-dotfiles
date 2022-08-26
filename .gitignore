@@ -12,3 +12,9 @@ default.nix
 /Documents/
 /.config/discord/
 /.config/BraveSoftware/
+/Development/
+/.ssh/
+/.pki/
+/.nix-defexpr/
+/.ICEauthority
+/.compose-cache/
