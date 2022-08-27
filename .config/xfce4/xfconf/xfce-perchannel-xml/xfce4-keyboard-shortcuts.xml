@@ -61,6 +61,9 @@
       <property name="&lt;Shift&gt;&lt;Super&gt;e" type="string" value="emacs"/>
       <property name="&lt;Super&gt;d" type="string" value="dmenu_run"/>
       <property name="&lt;Super&gt;x" type="string" value="xfce4-appfinder"/>
+      <property name="AudioRaiseVolume" type="string" value="pamixer -i 10"/>
+      <property name="AudioLowerVolume" type="string" value="pamixer -d 10"/>
+      <property name="AudioMute" type="string" value="pamixer -t"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

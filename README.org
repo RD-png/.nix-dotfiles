@@ -1,4 +1,9 @@
 #+TITLE: Dotfiles
 
 + On fresh install pull the repository and rename it to ryan, so that =/home/ryan= contains the repository.
-+ Choose a profile and run =sudo nixos-rebuild switch --flake .#$HOST=, where =$HOST= is the profile we want to install from the =/hosts= directory.
++ Run the following commands, where =$HOST= is the profile we want to install from the =/hosts= directory.
+  #+begin_src bash
+    nix-shell -p git
+    nix flake update
+    sudo nixos-rebuild switch --flake .#$HOST
+  #+end_src
