@@ -46,7 +46,6 @@
     erlang
     go_1_18
     gopls
-    vscode
     erlang-ls
     gnumake
     rebar3

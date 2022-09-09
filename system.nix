@@ -116,7 +116,7 @@
       EDITOR = "emacs";
     };
     shellAliases = {
-      nixRF = "sudo nixos-rebuild switch --flake .#`uname -n`";
+      nixRF = "sudo nixos-rebuild switch --flake $HOME#`uname -n`";
       ls = "exa --long --header --icons --group-directories-first";
       grep = "grep --color=auto";
       diff = "diff --color=auto";
