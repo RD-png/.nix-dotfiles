@@ -10,7 +10,6 @@
 
     # NUR
     nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # Overlays
     emacs.url = "github:nix-community/emacs-overlay";

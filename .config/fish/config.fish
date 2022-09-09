@@ -2,8 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-abbr -a nixRF 'sudo nixos-rebuild switch --flake .#(uname -n)'
-
 set fish_greeting
 set TERM "xterm-256color"
 set FISH_CLIPBOARD_CMD "cat"
