@@ -1,9 +1,21 @@
 #+TITLE: Dotfiles
 
 + On fresh install pull the repository and rename it to ryan, so that =/home/ryan= contains the repository.
-+ Run the following commands, where =$HOST= is the profile we want to install from the =/hosts= directory.
   #+begin_src bash
-    nix-shell -p git
-    nix flake update
-    sudo nixos-rebuild switch --flake .#$HOST
+  git clone https://github.com/RD-png/.nix-dotfiles.git
+  cd /home/
+  rm -rf ryan
+  mv .nix-dotfiles ryan
+  #+end_src
+
++ Copy generated hardware-configuration into the  directory of the host we are going to install on this machine
+  #+begin_src bash
+  cp /etc/nixos/hardware-configuration.nix ~/hosts/$HOST/
+  #+end_src
+
++ Build the system profile for the device, where =$HOST= is the profile we want to install from the =/hosts= directory.
+  #+begin_src bash
+  nix-shell -p git
+  nix flake update --experimental-features nix-command --experimental-features flakes
+  sudo nixos-rebuild switch --flake .#$HOST
   #+end_src

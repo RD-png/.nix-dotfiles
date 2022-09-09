@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     ## General
-    gnome-icon-theme
     xfce.tumbler
     xfce.thunar
     xfce.xfconf
@@ -30,27 +29,21 @@
     automake
     zlib
     libpng
-    mpv
-
+    vlc
 
     ## Programming
-    texlive.combined.scheme-full
+    # texlive.combined.scheme-full
     haskell-language-server
-    sqlitebrowser
-    postgresql
     nix-direnv
     direnv
     sqlite
     nixfmt
-    nodejs
-    pipenv
-    cargo
+    rnix-lsp
     vim
     git
     gcc
     ghc
     erlang
-
     go_1_18
     gopls
     vscode

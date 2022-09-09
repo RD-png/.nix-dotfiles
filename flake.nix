@@ -10,7 +10,6 @@
 
     # NUR
     nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     # Overlays
     emacs.url = "github:nix-community/emacs-overlay";
@@ -45,7 +44,7 @@
                 home.homeDirectory = "/home/ryan";
                 nixpkgs.config.allowUnfree = true;
                 nixpkgs.overlays = [ emacs.overlay nur.overlay ];
-                imports = map (module: "${./modules}/${module}")
+                imports = builtins.map (module: ./modules + "/${module}")
                   (builtins.attrNames (builtins.readDir ./modules));
               };
             }
@@ -57,7 +56,7 @@
 
     in
     {
-      nixosConfigurations = builtins.listToAttrs (map
+      nixosConfigurations = builtins.listToAttrs (builtins.map
         (host: {
           name = host;
           value = nixUserFlake {
@@ -66,7 +65,7 @@
         })
         (builtins.attrNames (builtins.readDir ./hosts)));
 
-      devShell."${system}" =
+      devShells."${system}".default =
         import ./shell.nix { inherit pkgs; };
     };
 }

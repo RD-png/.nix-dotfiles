@@ -10,10 +10,8 @@
     binutils
     zstd
     emacs-all-the-icons-fonts
-    imagemagick
-    rnix-lsp
     gnutls
     isync
-    ispell    
-  ];  
+    ispell
+  ];
 }
