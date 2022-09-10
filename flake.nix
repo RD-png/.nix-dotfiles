@@ -44,6 +44,6 @@
         (builtins.attrNames (builtins.readDir ./hosts)));
 
       devShells."${system}".default =
-        import ./shell.nix { inherit pkgs; };
+        import ./shell.nix;
     };
 }
