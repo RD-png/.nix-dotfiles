@@ -9,10 +9,9 @@
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    nur.url = "github:nix-community/NUR";
-
     # Overlays
     emacs.url = "github:nix-community/emacs-overlay";
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs@{ self, ... }:
