@@ -1,4 +1,3 @@
-default.nix
 /.git-credentials
 /.Xauthority
 /.bash_history
