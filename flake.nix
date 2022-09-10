@@ -31,9 +31,11 @@
         };
 
       nixosConfiguration = host:
+        let hostConfig = { imports = [ (import ./hosts/${host}) ]; };
+        in
         {
           name = host;
-          value = nixUserFlake { imports = [ (import ./hosts/${host}) ]; };
+          value = nixUserFlake hostConfig;
         };
     in
     {
