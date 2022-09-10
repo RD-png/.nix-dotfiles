@@ -25,23 +25,9 @@
           inherit system;
           specialArgs = { inherit inputs system; };
           modules = [
-            {
-              home-manager.useUserPackages = true;
-              home-manager.users.ryan = {
-                xdg.enable = true;
-                home.stateVersion = "22.05";
-                home.username = "ryan";
-                home.homeDirectory = "/home/ryan";
-                nixpkgs.config.allowUnfree = true;
-                nixpkgs.overlays = [ emacs.overlay nur.overlay ];
-                imports = builtins.map
-                  (module: ./modules/${module})
-                  (builtins.attrNames (builtins.readDir ./modules));
-              };
-            }
-            ./system.nix
             host
-            home-manager.nixosModules.home-manager
+            ./system.nix
+            ./home.nix
           ];
         };
 

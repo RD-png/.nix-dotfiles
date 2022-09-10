@@ -1,4 +1,7 @@
 { inputs, config, pkgs, lib, ... }: {
+
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   time.timeZone = "Europe/London";
   virtualisation.virtualbox.host.enable = true;
   services = {
@@ -149,7 +152,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" "vboxusers"];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" ];
       shell = pkgs.fish;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };
