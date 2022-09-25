@@ -32,8 +32,9 @@
     vlc
 
     ## Programming
-    # texlive.combined.scheme-full
+    texlive.combined.scheme-full
     haskell-language-server
+    cabal-install
     nix-direnv
     direnv
     sqlite
@@ -51,6 +52,7 @@
     rebar3
     ocaml
     ocamlPackages.ocaml-lsp
+    niv
 
     ## Utils
     ripgrep
