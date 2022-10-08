@@ -37,6 +37,7 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "alacritty"
+interface = subprocess.getoutput("route | grep '^default' | grep -o '[^ ]*$'")
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -216,6 +217,23 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
+                # widget.PulseVolume(
+                #     # fmt=" {}",
+                #     volume_app="pamixer",
+                #     update_interval="1",
+                #     get_volume_command="pamixer --get-volume-human",
+                #     check_mute_command="pamixer --get-mute",
+                #     check_mute_string="true",
+                #     volume_up_command="pamixer -i 2",
+                #     volume_down_command="pamixer -d 2",
+                #     mute_command="pamixer -t",
+                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
+                # ),
+                # widget.Sep(
+                #     linewidth=0,
+                #     padding=10,
+                #     size_percent=50,
+                # ),
                 widget.Sep(
                     linewidth=0,
                     padding=10,
@@ -245,6 +263,19 @@ screens = [
                 #     padding=10,
                 #     size_percent=50,
                 # ),
+                widget.Net(
+                    font="Font Awesome 5 Free Solid",
+                    fontsize=12,
+                    interface=interface,
+                    foreground=colors[2],
+                    background=colors[1],
+                    padding = 0,
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
                 widget.TextBox(
                     foreground=colors[7],
                     text="",
@@ -306,36 +337,11 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(),
                 widget.Sep(
                     linewidth=0,
                     padding=10,
                     size_percent=50,
                 ),
-                cus_battery_icon(),
-                cus_battery(),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10,
-                    size_percent=50,
-                ),
-                # widget.PulseVolume(
-                #     # fmt=" {}",
-                #     volume_app="pamixer",
-                #     update_interval="1",
-                #     get_volume_command="pamixer --get-volume-human",
-                #     check_mute_command="pamixer --get-mute",
-                #     check_mute_string="true",
-                #     volume_up_command="pamixer -i 2",
-                #     volume_down_command="pamixer -d 2",
-                #     mute_command="pamixer -t",
-                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
-                # ),
-                # widget.Sep(
-                #     linewidth=0,
-                #     padding=10,
-                #     size_percent=50,
-                # ),
                 widget.TextBox(
                     foreground=colors[7],
                     text="",
@@ -446,7 +452,6 @@ def start_once():
     """Run setup script on startup."""
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/setup.sh"])
-
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

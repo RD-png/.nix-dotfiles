@@ -2,6 +2,11 @@
 {
   home.packages = with pkgs; [
     ## General
+    pa_applet
+    adw-gtk3
+    xfce.xfce4-power-manager
+    lxde.lxsession
+    dunst
     xfce.tumbler
     xfce.thunar
     xfce.xfconf
@@ -30,6 +35,8 @@
     zlib
     libpng
     vlc
+    bluez
+    autorandr
 
     ## Programming
     texlive.combined.scheme-full
@@ -67,7 +74,7 @@
     wget
     tldr
     bat
-    feh
+    nitrogen
     fd
     sd
   ];

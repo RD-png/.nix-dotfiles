@@ -9,12 +9,10 @@
       enable = true;
       exportConfiguration = true;
       displayManager = {
-        defaultSession = "xfce";
+        defaultSession = "none+qtile";
         lightdm.enable = true;
       };
-      desktopManager = {
-        xfce.enable = true;
-      };
+      windowManager = { qtile = with pkgs; { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
@@ -22,15 +20,19 @@
     };
 
     picom = {
-      enable = false;
+      enable = true;
       backend = "glx";
-      experimentalBackends = true;
-      settings = {
-        blur = {
-          method = "kawase";
-          strength = 75;
-        };
-      };
+      # experimentalBackends = true;
+      # settings = {
+      #   blur = {
+      #     method = "kawase";
+      #     strength = 75;
+      #   };
+      # };
+    };
+
+    blueman = {
+      enable = true;
     };
 
     openssh.enable = true;
@@ -159,7 +161,7 @@
   };
 
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = "experimental-features = nix-command flakes";
     gc = {
       automatic = true;
