@@ -2,8 +2,11 @@
 {
   home.packages = with pkgs; [
     ## General
-    pa_applet
-    adw-gtk3
+    paper-icon-theme
+    rofi
+    feh
+    qtile
+    volumeicon
     xfce.xfce4-power-manager
     lxde.lxsession
     dunst
@@ -40,6 +43,8 @@
 
     ## Programming
     texlive.combined.scheme-full
+    ghc
+    stylish-haskell
     haskell-language-server
     cabal-install
     nix-direnv

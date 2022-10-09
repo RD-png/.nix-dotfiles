@@ -4,6 +4,6 @@ autorandr --change
 
 lxsession &
 run xfce4-power-manager &
-pa-applet &
+volumeicon &
 nitrogen --restore &
 dunst &

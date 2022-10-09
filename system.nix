@@ -147,6 +147,9 @@
     fish = {
       enable = true;
     };
+    nm-applet = {
+      enable = true;
+    };
   };
 
   users = {

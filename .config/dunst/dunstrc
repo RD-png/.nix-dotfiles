@@ -14,8 +14,8 @@
     padding = 8
     horizontal_padding = 8
     text_icon_padding = 0
-    frame_width = 2
-    frame_color = "#4A5057"
+    frame_width = 3
+    frame_color = "#005577"
     separator_color = frame
     sort = yes
     idle_threshold = 120
@@ -34,7 +34,7 @@
     show_indicators = yes
     icon_position = left
     min_icon_size = 0
-    max_icon_size = 32    
+    max_icon_size = 32
     sticky_history = yes
     history_length = 20
     always_run_script = true
@@ -51,16 +51,16 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    background = "#11121D"
-    foreground = "#A0A8CD"
+    background = "#000000"
+    foreground = "#C3BAC6"
     timeout = 10
 
 [urgency_normal]
-    background = "#11121D"
-    foreground = "#A0A8CD"
+    background = "#000000"
+    foreground = "#FAE3B0"
     timeout = 10
 
 [urgency_critical]
-    background = "#11121D"
-    foreground = "#EE6D85"
+    background = "#000000"
+    foreground = "#F28FAD"
     timeout = 30

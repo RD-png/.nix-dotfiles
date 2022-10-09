@@ -28,7 +28,8 @@ import os
 import subprocess
 import socket
 import psutil
-from typing import List  # noqa: F401
+import re
+from typing import List
 
 from libqtile import qtile, hook
 from libqtile import bar, layout, widget
@@ -37,7 +38,6 @@ from libqtile.lazy import lazy
 
 mod = "mod4"
 terminal = "alacritty"
-interface = subprocess.getoutput("route | grep '^default' | grep -o '[^ ]*$'")
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -64,7 +64,9 @@ keys = [
     Key([mod, "control"], "k", lazy.layout.grow_up()),
     Key([mod], "t", lazy.layout.normalize()),
     # Spawn Programs
-    Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
+    # Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
+    Key([mod], "d", lazy.spawn("rofi -show drun")),
+    Key([mod], "s", lazy.spawn("rofi -show window")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 10")),
@@ -123,6 +125,7 @@ for i in groups:
 layouts = [
     layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
     layout.Max(),
+    layout.Floating(),
 ]
 
 # Append scratchpad with dropdowns to groups
@@ -170,34 +173,12 @@ colors = [
     ["#242831", "#242831"],  # super dark background
 ]
 
-
-def cus_battery():
-    if socket.gethostname() == "nixos-laptop":
-        return widget.Battery(
-            padding=3,
-            charge_char="+",
-            discharge_char="-",
-            update_delay=15,
-            format="{percent:.0%}{char}",
-        )
-    return widget.TextBox(text="", padding=0, fontsize=0)
-
-
-def cus_battery_icon():
-    if socket.gethostname() == "nixos-laptop":
-        return widget.TextBox(
-            foreground=colors[4],
-            text="",
-            font="Font Awesome 5 Free Solid",
-        )
-    return widget.TextBox(text="", padding=0, fontsize=0)
-
-
 screens = [
     Screen(
         top=bar.Bar(
             [
                 widget.GroupBox(
+                    active=colors[0],
                     highlight_method="line",
                     highlight_color="#005577",
                     padding_x=6,
@@ -206,9 +187,22 @@ screens = [
                     disable_drag=True,
                     block_highlight_text_color="FFFFFF",
                 ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.CurrentLayoutIcon(
+                    foreground=colors[0]
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
                 widget.Prompt(),
                 widget.WindowName(
-                    background="#005577",
+                    foreground=colors[0]
                 ),
                 widget.Chord(
                     chords_colors={
@@ -216,60 +210,22 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.Systray(),
-                # widget.PulseVolume(
-                #     # fmt=" {}",
-                #     volume_app="pamixer",
-                #     update_interval="1",
-                #     get_volume_command="pamixer --get-volume-human",
-                #     check_mute_command="pamixer --get-mute",
-                #     check_mute_string="true",
-                #     volume_up_command="pamixer -i 2",
-                #     volume_down_command="pamixer -d 2",
-                #     mute_command="pamixer -t",
-                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
-                # ),
-                # widget.Sep(
-                #     linewidth=0,
-                #     padding=10,
-                #     size_percent=50,
-                # ),
+                widget.Systray(
+                    padding=10
+                ),
                 widget.Sep(
                     linewidth=0,
                     padding=10,
                     size_percent=50,
                 ),
-                cus_battery_icon(),
-                cus_battery(),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10,
-                    size_percent=50,
-                ),
-                # widget.PulseVolume(
-                #     # fmt=" {}",
-                #     volume_app="pamixer",
-                #     update_interval="1",
-                #     get_volume_command="pamixer --get-volume-human",
-                #     check_mute_command="pamixer --get-mute",
-                #     check_mute_string="true",
-                #     volume_up_command="pamixer -i 2",
-                #     volume_down_command="pamixer -d 2",
-                #     mute_command="pamixer -t",
-                #     # mouse_callbacks={"Button3": lambda: qtile.cmd_spawn("easyeffects")}
-                # ),
-                # widget.Sep(
-                #     linewidth=0,
-                #     padding=10,
-                #     size_percent=50,
-                # ),
-                widget.Net(
-                    font="Font Awesome 5 Free Solid",
-                    fontsize=12,
-                    interface=interface,
-                    foreground=colors[2],
-                    background=colors[1],
-                    padding = 0,
+                widget.BatteryIcon(),
+                widget.Battery(
+                    foreground=colors[0],
+                    padding=3,
+                    charge_char="",
+                    discharge_char="",
+                    update_delay=15,
+                    format="{percent:.0%}{char}",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -284,7 +240,7 @@ screens = [
                 widget.CPU(
                     foreground=colors[0],
                     update_interval=1,
-                    format="{load_percent: 2.0f}%",
+                    format="{load_percent: 3.0f}%",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -298,7 +254,7 @@ screens = [
                 ),
                 widget.Memory(
                     foreground=colors[0],
-                    format="{MemPercent: .0f}%",
+                    format="{MemPercent: 3.0f}%",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -306,11 +262,28 @@ screens = [
                     size_percent=50,
                 ),
                 widget.TextBox(
-                    foreground=colors[13],
+                    foreground=colors[3],
+                    text=" ",
+                    font="Font Awesome 5 Free Solid",
+                ),
+                widget.Clock(
+                    foreground=colors[0],
+                    format="%a %d-%m-%y"
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.TextBox(
+                    foreground=colors[11],
                     text=" ",
                     font="Font Awesome 5 Free Solid",
                 ),
-                widget.Clock(format="%a %Y-%m-%d %H:%M"),
+                widget.Clock(
+                    foreground=colors[0],
+                    format="%H:%M"
+                ),
             ],
             size=22,
         ),
@@ -328,19 +301,12 @@ screens = [
                     block_highlight_text_color="FFFFFF",
                 ),
                 widget.Prompt(),
-                widget.WindowName(
-                    background="#005577",
-                ),
+                widget.WindowName(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10,
-                    size_percent=50,
                 ),
                 widget.TextBox(
                     foreground=colors[7],
@@ -350,7 +316,7 @@ screens = [
                 widget.CPU(
                     foreground=colors[0],
                     update_interval=1,
-                    format="{load_percent: 2.0f}%",
+                    format="{load_percent: 3.0f}%",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -364,7 +330,7 @@ screens = [
                 ),
                 widget.Memory(
                     foreground=colors[0],
-                    format="{MemPercent: .0f}%",
+                    format="{MemPercent: 3.0f}%",
                 ),
                 widget.Sep(
                     linewidth=0,
@@ -376,7 +342,7 @@ screens = [
                     text=" ",
                     font="Font Awesome 5 Free Solid",
                 ),
-                widget.Clock(format="%a %Y-%m-%d %H:%M"),
+                widget.Clock(format="%a %d-%m-%y  %H:%M"),
             ],
             size=22,
         ),
@@ -412,6 +378,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(title=re.compile('^Attach Process *')),
     ]
 )
 auto_fullscreen = True
