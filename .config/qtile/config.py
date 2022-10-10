@@ -173,6 +173,18 @@ colors = [
     ["#242831", "#242831"],  # super dark background
 ]
 
+def cus_battery():
+    if socket.gethostname() == "nixos-laptop":
+        return widget.Battery(
+                    foreground=colors[0],
+                    padding=3,
+                    charge_char="",
+                    discharge_char="",
+                    update_delay=15,
+                    format="{percent:.0%}{char}",
+                ),
+    return widget.TextBox(text="", padding=0, fontsize=0)
+
 screens = [
     Screen(
         top=bar.Bar(
@@ -219,14 +231,7 @@ screens = [
                     size_percent=50,
                 ),
                 widget.BatteryIcon(),
-                widget.Battery(
-                    foreground=colors[0],
-                    padding=3,
-                    charge_char="",
-                    discharge_char="",
-                    update_delay=15,
-                    format="{percent:.0%}{char}",
-                ),
+                cus_battery(),
                 widget.Sep(
                     linewidth=0,
                     padding=10,
