@@ -3,7 +3,7 @@
 # Author: Protesilaos Stavrou, <https://protesilaos.com>
 colors:
   primary:
-    background: '#ffffe8'
+    background: '#f4f0ec'
     foreground: '#000000'
   normal:
     black:   '#000000'

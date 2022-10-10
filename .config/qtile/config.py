@@ -343,11 +343,28 @@ screens = [
                     size_percent=50,
                 ),
                 widget.TextBox(
-                    foreground=colors[13],
+                    foreground=colors[3],
+                    text=" ",
+                    font="Font Awesome 5 Free Solid",
+                ),
+                widget.Clock(
+                    foreground=colors[0],
+                    format="%a %d-%m-%y"
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
+                widget.TextBox(
+                    foreground=colors[11],
                     text=" ",
                     font="Font Awesome 5 Free Solid",
                 ),
-                widget.Clock(format="%a %d-%m-%y  %H:%M"),
+                widget.Clock(
+                    foreground=colors[0],
+                    format="%H:%M"
+                ),
             ],
             size=22,
         ),

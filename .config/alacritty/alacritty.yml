@@ -24,7 +24,7 @@ window:
 
 # Colors
 import:
-  - ~/.config/alacritty/base16-gruvbox-dark-hard.yml
+  - ~/.config/alacritty/modus-operandi.yml
 
 key_bindings:
   - { key: P,         mods: Control|Shift,                   action: ScrollLineUp     }
