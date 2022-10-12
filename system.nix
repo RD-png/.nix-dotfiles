@@ -35,6 +35,10 @@
       enable = true;
     };
 
+    upower = {
+      enable = true;
+    };
+
     openssh.enable = true;
     fstrim.enable = true;
     printing.enable = true;

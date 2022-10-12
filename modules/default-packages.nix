@@ -2,13 +2,13 @@
 {
   home.packages = with pkgs; [
     ## General
+    upower
     paper-icon-theme
     rofi
     feh
     qtile
     volumeicon
-    xfce.xfce4-power-manager
-    lxde.lxsession
+    mate.mate-power-manager
     dunst
     xfce.tumbler
     xfce.thunar
@@ -42,7 +42,7 @@
     autorandr
 
     ## Programming
-    texlive.combined.scheme-full
+    texlive.combined.scheme-medium
     ghc
     stylish-haskell
     haskell-language-server

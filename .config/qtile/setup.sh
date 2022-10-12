@@ -3,7 +3,7 @@
 autorandr --change
 
 lxsession &
-run xfce4-power-manager &
+mate-power-manager &
 volumeicon &
 nitrogen --restore &
 dunst &

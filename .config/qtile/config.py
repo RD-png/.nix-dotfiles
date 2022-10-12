@@ -218,20 +218,6 @@ screens = [
                     padding=10,
                     size_percent=50,
                 ),
-                widget.BatteryIcon(),
-                widget.Battery(
-                    foreground=colors[0],
-                    padding=3,
-                    charge_char="",
-                    discharge_char="",
-                    update_delay=15,
-                    format="{percent:.0%}{char}",
-                ),
-                widget.Sep(
-                    linewidth=0,
-                    padding=10,
-                    size_percent=50,
-                ),
                 widget.TextBox(
                     foreground=colors[7],
                     text="",
