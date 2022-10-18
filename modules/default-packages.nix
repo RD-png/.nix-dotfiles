@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     ## General
-    lxqt.lxqt-session
+    lxde.lxsession
     upower
     paper-icon-theme
     rofi
