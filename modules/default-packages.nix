@@ -2,12 +2,14 @@
 {
   home.packages = with pkgs; [
     ## General
+    lxqt.lxqt-session
     upower
     paper-icon-theme
     rofi
     feh
     qtile
-    volumeicon
+    # volumeicon
+    pnmixer
     mate.mate-power-manager
     dunst
     xfce.tumbler

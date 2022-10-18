@@ -2,8 +2,9 @@
 
 autorandr --change
 
-lxsession &
+lxqt-session &
 mate-power-manager &
-volumeicon &
 nitrogen --restore &
 dunst &
+
+pnmixer &

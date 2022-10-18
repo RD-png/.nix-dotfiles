@@ -154,6 +154,9 @@
     nm-applet = {
       enable = true;
     };
+    light = {
+      enable = true;
+    };
   };
 
   users = {
