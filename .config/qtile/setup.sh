@@ -3,7 +3,7 @@
 autorandr --change
 
 lxsession &
-mate-power-manager &
+lxqt-powermanagement &
 nitrogen --restore &
 dunst &
 

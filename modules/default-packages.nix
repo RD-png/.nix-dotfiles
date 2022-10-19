@@ -10,7 +10,7 @@
     qtile
     # volumeicon
     pnmixer
-    mate.mate-power-manager
+    lxqt.lxqt-powermanagement
     dunst
     xfce.tumbler
     xfce.thunar
