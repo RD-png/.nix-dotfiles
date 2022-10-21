@@ -59,9 +59,11 @@
     gcc
     ghc
     erlang
+    erlang-ls
+    elvis-erlang
+    go_1_18
     go_1_18
     gopls
-    erlang-ls
     gnumake
     rebar3
     ocaml
