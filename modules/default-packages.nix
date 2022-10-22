@@ -76,7 +76,7 @@
     neofetch
     openssh
     exa
-    picom
+    picom-jonaburg
     sshfs
     unzip
     htop
