@@ -17,7 +17,7 @@ scrolling:
   multiplier: 3
 
 window:
-  opacity: 1.0x
+  opacity: 1.0
   padding:
     x: 10
     y: 10
