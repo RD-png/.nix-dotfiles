@@ -8,7 +8,6 @@
     rofi
     feh
     qtile
-    # volumeicon
     pnmixer
     lxqt.lxqt-powermanagement
     dunst
@@ -18,9 +17,7 @@
     xfce.exo
     alacritty
     discord
-    sublime4
     inkscape
-    firefox
     cachix
     brave
     libvterm
@@ -31,7 +28,6 @@
     acpi
     fzf
     xsel
-    chromium
     mitscheme
     spotify
     imagemagick
@@ -53,7 +49,7 @@
     direnv
     sqlite
     nixfmt
-    rnix-lsp
+    nil
     vim
     git
     gcc
@@ -61,9 +57,6 @@
     erlang
     erlang-ls
     elvis-erlang
-    go_1_18
-    go_1_18
-    gopls
     gnumake
     rebar3
     ocaml

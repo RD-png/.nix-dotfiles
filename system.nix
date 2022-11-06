@@ -12,7 +12,7 @@
         defaultSession = "none+qtile";
         lightdm.enable = true;
       };
-      windowManager = { qtile = with pkgs; { enable = true; }; };
+      windowManager = { qtile = { enable = true; }; };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
@@ -101,7 +101,7 @@
   nixpkgs.config = { allowUnfree = true; };
 
   environment = {
-    sessionVariables = rec {
+    sessionVariables = {
       XDG_CACHE_HOME = "$HOME/.cache";
       XDG_CONFIG_HOME = "$HOME/.config";
       XDG_BIN_HOME = "$HOME/.local/bin";
@@ -109,7 +109,7 @@
       XDG_STATE_HOME = "$HOME/.local/state";
       XDG_RUNTIME_DIR = "/run/user/$UID";
       FZF_DEFAULT_OPTS = "--layout=reverse --height 40%";
-      PATH = [ "$XDG_BIN_HOME" "$HOME/.config/npm/bin" ];
+      PATH = [ "$XDG_BIN_HOME" ];
     };
     variables = {
       INPUTRC = "$XDG_CONFIG_HOME/shell/inputrc";
