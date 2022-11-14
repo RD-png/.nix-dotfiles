@@ -49,7 +49,7 @@
     direnv
     sqlite
     nixfmt
-    nil
+    rnix-lsp
     vim
     git
     gcc

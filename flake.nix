@@ -6,7 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Overlays
@@ -18,7 +17,6 @@
     with inputs;
     let
       system = "x86_64-linux";
-
       nixUserFlake = host:
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -43,7 +41,7 @@
         nixosConfiguration
         (builtins.attrNames (builtins.readDir ./hosts)));
 
-      devShells."${system}".default =
+      devShells.${system}.default =
         import ./shell.nix;
     };
 }
