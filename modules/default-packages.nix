@@ -20,6 +20,7 @@
     inkscape
     cachix
     brave
+    tmux
     libvterm
     flameshot
     pamixer

@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsNativeComp;
+  services.emacs.package = pkgs.emacsGit;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsNativeComp).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacsGit).emacsWithPackages (epkgs: [
       epkgs.vterm
       epkgs.pdf-tools
     ]))

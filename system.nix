@@ -22,7 +22,6 @@
     picom = {
       enable = true;
       backend = "glx";
-      experimentalBackends = true;
       # settings = {
       #   blur = {
       #     method = "kawase";
