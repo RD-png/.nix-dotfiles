@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsGit;
+  services.emacs.package = pkgs.emacsUnstable;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsGit).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacsUnstable).emacsWithPackages (epkgs: [
       epkgs.vterm
       epkgs.pdf-tools
     ]))

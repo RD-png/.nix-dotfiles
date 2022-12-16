@@ -60,8 +60,6 @@
     elvis-erlang
     gnumake
     rebar3
-    ocaml
-    ocamlPackages.ocaml-lsp
     niv
 
     ## Utils

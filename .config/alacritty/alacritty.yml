@@ -25,7 +25,7 @@ window:
 
 # Colors
 import:
-  - ~/.config/alacritty/modus-operandi.yml
+  - ~/.config/alacritty/modus-active.yml
 
 key_bindings:
   - { key: P,         mods: Control|Shift,                   action: ScrollLineUp     }
