@@ -1,7 +1,10 @@
 { inputs, config, home-manager, system, ... }:
 let
   overlay-stable = final: prev: {
-    stable = import inputs.nixpkgs-stable {};
+    stable = import inputs.nixpkgs-stable {
+      inherit system;
+      config.allowUnfree = true;
+    };
   };
 in
 {
