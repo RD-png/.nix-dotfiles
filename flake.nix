@@ -19,16 +19,10 @@
     with inputs;
     let
       system = "x86_64-linux";
-      overlay-stable = final: prev: {
-        stable = import nixpkgs-stable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
       nixUserFlake = host:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs system overlay-unstable; };
+          specialArgs = { inherit inputs system; };
           modules = [
             host
             ./system.nix

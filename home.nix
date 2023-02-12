@@ -1,4 +1,10 @@
-{ inputs, config, home-manager, overlay-stable, ... }: {
+{ inputs, config, home-manager, system, ... }:
+let
+  overlay-stable = final: prev: {
+    stable = import inputs.nixpkgs-stable {};
+  };
+in
+{
   home-manager = {
     useUserPackages = true;
     users.ryan = {
