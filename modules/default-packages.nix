@@ -39,6 +39,8 @@
     vlc
     bluez
     autorandr
+    qbittorrent
+    mpv
 
     ## Programming
     texlive.combined.scheme-medium

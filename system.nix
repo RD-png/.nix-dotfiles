@@ -3,7 +3,6 @@
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   time.timeZone = "Europe/London";
-  virtualisation.virtualbox.host.enable = true;
   services = {
     xserver = {
       enable = true;
@@ -46,6 +45,10 @@
       enable = true;
       alsa.enable = true;
       pulse.enable = true;
+    };
+
+    mullvad-vpn = {
+      enable = true;
     };
 
     httpd = {
