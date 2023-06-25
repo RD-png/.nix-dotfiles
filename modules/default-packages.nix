@@ -41,6 +41,7 @@
     autorandr
     qbittorrent
     mpv
+    mullvad-vpn
 
     ## Programming
     texlive.combined.scheme-medium
