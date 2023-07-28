@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacsLsp;
+  services.emacs.package = pkgs.emacs-lsp;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacsLsp).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacs-lsp).emacsWithPackages (epkgs: [
       epkgs.vterm
       epkgs.pdf-tools
     ]))

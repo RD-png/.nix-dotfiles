@@ -64,6 +64,7 @@
     gnumake
     rebar3
     niv
+    apacheKafka
 
     ## Utils
     ripgrep

@@ -83,16 +83,20 @@
 
     postgresql = {
       enable = true;
-      ensureDatabases = [ "elixir_db" ];
+      ensureDatabases = [ "test_db" ];
       ensureUsers = [{
         name = "ryan";
-        ensurePermissions = { "DATABASE elixir_db" = "ALL PRIVILEGES"; };
+        ensurePermissions = { "DATABASE test_db" = "ALL PRIVILEGES"; };
       }];
+    };
+
+    apache-kafka = {
+      enable = true;
     };
   };
 
   networking = {
-    firewall.allowedTCPPorts = [ 80 443 ];
+    firewall.allowedTCPPorts = [ 80 443 2181 ];
     networkmanager.enable = true;
   };
 
@@ -140,7 +144,7 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman fira-code ];
+    packages = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman fira-code ];
   };
 
   programs = {

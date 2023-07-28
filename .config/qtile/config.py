@@ -270,6 +270,11 @@ screens = [
                     foreground=colors[0],
                     format="%H:%M"
                 ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
+                ),
             ],
             size=22,
         ),
@@ -345,6 +350,11 @@ screens = [
                 widget.Clock(
                     foreground=colors[0],
                     format="%H:%M"
+                ),
+                widget.Sep(
+                    linewidth=0,
+                    padding=10,
+                    size_percent=50,
                 ),
             ],
             size=22,
