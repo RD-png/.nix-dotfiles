@@ -1,10 +1,11 @@
 { config, pkgs, inputs, ... }: {
   services.emacs.enable = true;
-  services.emacs.package = pkgs.emacs-lsp;
+  services.emacs.package = pkgs.emacs29;
   home.packages = with pkgs; [
-    ((emacsPackagesFor emacs-lsp).emacsWithPackages (epkgs: [
+    ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [
       epkgs.vterm
       epkgs.pdf-tools
+      epkgs.nerd-icons
     ]))
     mu
     binutils

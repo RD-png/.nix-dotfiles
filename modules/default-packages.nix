@@ -65,6 +65,7 @@
     rebar3
     niv
     apacheKafka
+    zookeeper
 
     ## Utils
     ripgrep

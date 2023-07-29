@@ -93,6 +93,10 @@
     apache-kafka = {
       enable = true;
     };
+
+    zookeeper = {
+      enable = true;
+    };
   };
 
   networking = {
