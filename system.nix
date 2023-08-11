@@ -91,11 +91,11 @@
     };
 
     apache-kafka = {
-      enable = true;
+      enable = false;
     };
 
     zookeeper = {
-      enable = true;
+      enable = false;
     };
   };
 
