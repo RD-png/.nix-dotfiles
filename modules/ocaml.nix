@@ -11,5 +11,6 @@
     ocamlPackages.menhir
     ocamlPackages.ocaml-lsp
     ocamlPackages.ocamlformat-rpc-lib
+    ocamlPackages.findlib
   ];
 }
