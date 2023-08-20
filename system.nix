@@ -11,7 +11,11 @@
         defaultSession = "none+qtile";
         lightdm.enable = true;
       };
-      windowManager = { qtile = { enable = true; }; };
+      windowManager = {
+        qtile = {
+          enable = true;
+        };
+      };
       layout = "us";
       xkbOptions = "ctrl:nocaps";
       autoRepeatDelay = 250;
