@@ -1,9 +1,10 @@
 {
-   "checksum": "b4ab0b20078d87b22cfd16f8e4408501",
+   "checksum": "49d347a4cf3fbe8d231ea0cd2ac7131f",
    "roots": {
       "bookmark_bar": {
          "children": [ {
             "date_added": "13283371679949698",
+            "date_last_used": "13336958231210073",
             "guid": "75204cc8-0ffc-42fc-9340-80995b6c5039",
             "id": "17",
             "name": "YouTube",
@@ -11,6 +12,7 @@
             "url": "https://www.youtube.com/"
          }, {
             "date_added": "13283189154785306",
+            "date_last_used": "13337012595002417",
             "guid": "25c0b2ed-a0bc-4d5b-afc9-92892f20d7d2",
             "id": "5",
             "name": "forsen - Twitch",
@@ -18,6 +20,7 @@
             "url": "https://www.twitch.tv/forsen"
          }, {
             "date_added": "13294617038001939",
+            "date_last_used": "13320525789785966",
             "guid": "eddfe48f-5157-4560-9592-04c2add406ec",
             "id": "40",
             "name": "Ryan Denby · GitLab",
@@ -25,6 +28,7 @@
             "url": "https://gitlab.com/rd-png"
          }, {
             "date_added": "13283189162367055",
+            "date_last_used": "13336942115003070",
             "guid": "d9b18db0-0ac8-419d-8123-bc687376d3e4",
             "id": "6",
             "name": "Your Repositories",
@@ -32,21 +36,16 @@
             "url": "https://github.com/RD-png?tab=repositories"
          }, {
             "date_added": "13283189199699569",
+            "date_last_used": "13336955667000821",
             "guid": "78f30b9a-4818-4c61-8be5-93059379b258",
             "id": "7",
             "name": "Facebook",
             "type": "url",
             "url": "https://www.facebook.com/"
          }, {
-            "date_added": "13287099679166652",
-            "guid": "815216d2-79e8-4d38-bf35-108d77f0d419",
-            "id": "27",
-            "name": "mit-scheme-ref.pdf",
-            "type": "url",
-            "url": "https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref.pdf"
-         }, {
             "children": [ {
                "date_added": "13283713532631404",
+               "date_last_used": "0",
                "guid": "6c7a7962-d643-4d95-ba1f-1c161fa7aa0b",
                "id": "19",
                "name": "Hello from Emacs Docs | Emacs Docs",
@@ -54,6 +53,7 @@
                "url": "https://www.emacsdocs.org/"
             }, {
                "date_added": "13283210402647040",
+               "date_last_used": "0",
                "guid": "390e4160-a4bc-4300-89ec-77cbb80e972b",
                "id": "10",
                "name": "M-x emacs-reddit",
@@ -61,6 +61,7 @@
                "url": "https://www.reddit.com/r/emacs/"
             } ],
             "date_added": "13287099743783074",
+            "date_last_used": "0",
             "date_modified": "13287099760026446",
             "guid": "2fe974f4-35ad-4c4d-b057-566a9a6dc39c",
             "id": "28",
@@ -69,6 +70,7 @@
          }, {
             "children": [ {
                "date_added": "13283213740168082",
+               "date_last_used": "0",
                "guid": "52bceb95-94af-4e12-9cb2-e7a06f64a8d0",
                "id": "13",
                "name": "Nix (builtins) & Nixpkgs (lib) Functions",
@@ -76,6 +78,7 @@
                "url": "https://teu5us.github.io/nix-lib.html"
             }, {
                "date_added": "13283211258976718",
+               "date_last_used": "13320084878426104",
                "guid": "fbe5902a-9b74-43bc-a53e-a20ba5ff132f",
                "id": "11",
                "name": "pinpox/nixos: My NixOS Configurations",
@@ -83,6 +86,7 @@
                "url": "https://github.com/pinpox/nixos"
             }, {
                "date_added": "13283196871496766",
+               "date_last_used": "13320084915787407",
                "guid": "575ee028-4e13-43ec-aee2-34b9db47b5fc",
                "id": "8",
                "name": "jonringer/nixpkgs-config: ~/.config/nixpkgs",
@@ -90,56 +94,157 @@
                "url": "https://github.com/jonringer/nixpkgs-config"
             }, {
                "date_added": "13283197734781530",
+               "date_last_used": "0",
                "guid": "d378e214-a874-49ea-8cb1-f6c727e35eb6",
                "id": "9",
                "name": "https://www.reddit.com/r/NixOS/",
                "type": "url",
                "url": "https://www.reddit.com/r/NixOS/"
+            }, {
+               "date_added": "13294423975552585",
+               "date_last_used": "0",
+               "guid": "d6f8dc65-0f81-4336-885f-74c6c1f60b39",
+               "id": "38",
+               "name": "Hacking Your First Package — nix-tutorial documentation",
+               "type": "url",
+               "url": "https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/first-package.html"
             } ],
             "date_added": "13287099766418820",
-            "date_modified": "13287171193326851",
+            "date_last_used": "0",
+            "date_modified": "13321137369051447",
             "guid": "4de3c608-6550-488b-89ec-d11af62622aa",
             "id": "29",
             "name": "Nix",
             "type": "folder"
          }, {
-            "date_added": "13287171193326851",
-            "guid": "827a666f-3b57-402b-8e6e-ac6964104406",
-            "id": "32",
-            "name": "hmemcpy/milewski-ctfp-pdf: Bartosz Milewski's 'Category Theory for Programmers' unofficial PDF and LaTeX source",
-            "type": "url",
-            "url": "https://github.com/hmemcpy/milewski-ctfp-pdf"
+            "children": [ {
+               "children": [  ],
+               "date_added": "13321137305399937",
+               "date_last_used": "0",
+               "date_modified": "13321137305399937",
+               "guid": "416775c6-c0b0-4b64-b5bd-74f1f908206d",
+               "id": "48",
+               "name": "",
+               "type": "folder"
+            }, {
+               "date_added": "13321137283270942",
+               "date_last_used": "0",
+               "guid": "7baeda75-fa0a-4200-b4ee-6bcaac3b47ab",
+               "id": "46",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "All About Monads - HaskellWiki",
+               "type": "url",
+               "url": "https://wiki.haskell.org/All_About_Monads#Understanding_Monads"
+            }, {
+               "date_added": "13287171193326851",
+               "date_last_used": "0",
+               "guid": "827a666f-3b57-402b-8e6e-ac6964104406",
+               "id": "32",
+               "name": "hmemcpy/milewski-ctfp-pdf: Bartosz Milewski's 'Category Theory for Programmers' unofficial PDF and LaTeX source",
+               "type": "url",
+               "url": "https://github.com/hmemcpy/milewski-ctfp-pdf"
+            } ],
+            "date_added": "13321137305399544",
+            "date_last_used": "0",
+            "date_modified": "13321137380163689",
+            "guid": "77a06d8f-0573-41a0-8268-8d42f6ab289b",
+            "id": "47",
+            "name": "Haskell",
+            "type": "folder"
          }, {
-            "date_added": "13287171176381611",
-            "guid": "51b81bb6-977e-4143-a1ba-c69cc535eab2",
-            "id": "31",
-            "name": "The Scheme Programming Language, 4th Edition",
-            "type": "url",
-            "url": "https://www.scheme.com/tspl4/"
+            "children": [ {
+               "children": [  ],
+               "date_added": "13321137339431788",
+               "date_last_used": "0",
+               "date_modified": "13321137339431788",
+               "guid": "3ce8a672-ca2f-4f30-9fa4-a88f420f822f",
+               "id": "50",
+               "name": "New folder",
+               "type": "folder"
+            }, {
+               "date_added": "13287171176381611",
+               "date_last_used": "0",
+               "guid": "51b81bb6-977e-4143-a1ba-c69cc535eab2",
+               "id": "31",
+               "name": "The Scheme Programming Language, 4th Edition",
+               "type": "url",
+               "url": "https://www.scheme.com/tspl4/"
+            }, {
+               "date_added": "13287099679166652",
+               "date_last_used": "0",
+               "guid": "815216d2-79e8-4d38-bf35-108d77f0d419",
+               "id": "27",
+               "name": "mit-scheme-ref.pdf",
+               "type": "url",
+               "url": "https://www.gnu.org/software/mit-scheme/documentation/stable/mit-scheme-ref.pdf"
+            } ],
+            "date_added": "13321137339431716",
+            "date_last_used": "0",
+            "date_modified": "13321137376439284",
+            "guid": "54f9f0db-f2e3-4040-b2d0-3c25ff02d646",
+            "id": "49",
+            "name": "Scheme",
+            "type": "folder"
          }, {
-            "date_added": "13294423975552585",
-            "guid": "d6f8dc65-0f81-4336-885f-74c6c1f60b39",
-            "id": "38",
-            "name": "Hacking Your First Package — nix-tutorial documentation",
-            "type": "url",
-            "url": "https://nix-tutorial.gitlabpages.inria.fr/nix-tutorial/first-package.html"
+            "children": [ {
+               "children": [  ],
+               "date_added": "13321137358465183",
+               "date_last_used": "0",
+               "date_modified": "13321137358465183",
+               "guid": "7086515f-c9c0-4120-a03b-048fd7a4324f",
+               "id": "52",
+               "name": "Erlang",
+               "type": "folder"
+            }, {
+               "date_added": "13302220800310681",
+               "date_last_used": "0",
+               "guid": "0d7edcff-4558-4dcf-b586-af840180a0f5",
+               "id": "42",
+               "name": "dandelion/erlang at main · ferd/dandelion",
+               "type": "url",
+               "url": "https://github.com/ferd/dandelion/tree/main/erlang"
+            } ],
+            "date_added": "13321137358465115",
+            "date_last_used": "0",
+            "date_modified": "13321137362684724",
+            "guid": "57f39a42-febe-4de7-914c-7a721a0a50e2",
+            "id": "51",
+            "name": "Erlang",
+            "type": "folder"
          }, {
-            "date_added": "13302220800310681",
-            "guid": "0d7edcff-4558-4dcf-b586-af840180a0f5",
-            "id": "42",
-            "name": "dandelion/erlang at main · ferd/dandelion",
-            "type": "url",
-            "url": "https://github.com/ferd/dandelion/tree/main/erlang"
-         }, {
-            "date_added": "13304970243492882",
-            "guid": "8f50ac19-9046-42f9-bb6c-26df3e1763f5",
-            "id": "44",
-            "name": "OCaml Programming: Correct + Efficient + Beautiful — OCaml Programming: Correct + Efficient + Beautiful",
-            "type": "url",
-            "url": "https://cs3110.github.io/textbook/cover.html"
+            "children": [ {
+               "date_added": "13304970243492882",
+               "date_last_used": "0",
+               "guid": "8f50ac19-9046-42f9-bb6c-26df3e1763f5",
+               "id": "44",
+               "name": "OCaml Programming: Correct + Efficient + Beautiful — OCaml Programming: Correct + Efficient + Beautiful",
+               "type": "url",
+               "url": "https://cs3110.github.io/textbook/cover.html"
+            }, {
+               "date_added": "13336859972114428",
+               "date_last_used": "0",
+               "guid": "b292e4d8-33c7-4358-889e-1d07c7bc91e8",
+               "id": "55",
+               "meta_info": {
+                  "power_bookmark_meta": ""
+               },
+               "name": "ThePrimeagen - Twitch",
+               "type": "url",
+               "url": "https://www.twitch.tv/theprimeagen"
+            } ],
+            "date_added": "13321137387450609",
+            "date_last_used": "0",
+            "date_modified": "13336859972114428",
+            "guid": "81b82229-b0b3-4e1e-9142-f0fea42947b7",
+            "id": "53",
+            "name": "Misc",
+            "type": "folder"
          } ],
          "date_added": "13283188385083094",
-         "date_modified": "13305914143025796",
+         "date_last_used": "0",
+         "date_modified": "13321137387451125",
          "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
          "id": "1",
          "name": "Bookmarks",
@@ -148,6 +253,7 @@
       "other": {
          "children": [  ],
          "date_added": "13283188385083095",
+         "date_last_used": "0",
          "date_modified": "0",
          "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
          "id": "2",
@@ -157,6 +263,7 @@
       "synced": {
          "children": [  ],
          "date_added": "13283188385083096",
+         "date_last_used": "0",
          "date_modified": "0",
          "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
          "id": "3",

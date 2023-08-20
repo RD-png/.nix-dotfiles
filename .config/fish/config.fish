@@ -23,7 +23,7 @@ function fish_prompt
 	set_color yellow
 	echo -n (whoami)
     set_color red
-	echo -n ':'
+	echo -n ' @ '
 	if [ $PWD != $HOME ]
 		set_color green
 		echo -n (basename $PWD)
