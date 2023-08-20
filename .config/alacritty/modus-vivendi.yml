@@ -3,16 +3,16 @@
 # Author: Protesilaos Stavrou, <https://protesilaos.com>
 colors:
   primary:
-    background: '#1e1e1e'
+    background: '#1d2021'
     foreground: '#ffffff'
   normal:
     black:   '#000000'
-    red:     '#ff5f59'
-    green:   '#44bc44'
+    red:     '#ff6b55'
+    green:   '#70b900'
     yellow:  '#cabf00'
-    blue:    '#2fafff'
-    magenta: '#feacd0'
-    cyan:    '#00d3d0'
+    blue:    '#79a8ff'
+    magenta: '#f78fe7'
+    cyan:    '#76afbf'
     white:   '#bfbfbf'
   bright:
     black:   '#595959'
