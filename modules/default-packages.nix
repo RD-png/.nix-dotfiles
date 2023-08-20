@@ -57,15 +57,12 @@
     vim
     git
     gcc
-    ghc
     erlang
     erlang-ls
     elvis-erlang
     gnumake
     rebar3
     niv
-    apacheKafka
-    zookeeper
 
     ## Utils
     ripgrep
@@ -79,9 +76,6 @@
     htop
     wget
     tldr
-    bat
     nitrogen
-    fd
-    sd
   ];
 }

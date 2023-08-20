@@ -54,53 +54,6 @@
     mullvad-vpn = {
       enable = true;
     };
-
-    httpd = {
-      enable = true;
-      user = "ryan";
-      enablePHP = true;
-      adminAddr = "localhost";
-      phpOptions = ''
-        display_errors = On
-        error_reporting = E_ALL
-        opcache.enable = 0
-        opcache.revalidate_freq = 0
-      '';
-      extraModules = [ "http2" ];
-      virtualHosts = {
-        localhost = {
-          enableUserDir = true;
-          documentRoot = "/var/htdocs";
-          enableSSL = false;
-          extraConfig = ''
-            <Directory "/var/htdocs">
-              Require all granted
-            </Directory>
-
-            <IfModule mod_dir.c>
-              DirectoryIndex index.html
-            </IfModule>
-          '';
-        };
-      };
-    };
-
-    postgresql = {
-      enable = true;
-      ensureDatabases = [ "test_db" ];
-      ensureUsers = [{
-        name = "ryan";
-        ensurePermissions = { "DATABASE test_db" = "ALL PRIVILEGES"; };
-      }];
-    };
-
-    apache-kafka = {
-      enable = false;
-    };
-
-    zookeeper = {
-      enable = false;
-    };
   };
 
   networking = {
@@ -143,9 +96,7 @@
       ls = "exa --long --header --icons --group-directories-first";
       grep = "grep --color=auto";
       diff = "diff --color=auto";
-      cdp = "cd /var/htdocs/Projects";
       e = "emacsclient -n -c";
-      cat = "bat";
       startx = "startx $XINITRC";
     };
   };
@@ -178,7 +129,7 @@
       isNormalUser = true;
       home = "/home/ryan";
       description = "Ryan User";
-      extraGroups = [ "wheel" "networkmanager" "video" "audio" "mysql" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
       shell = pkgs.fish;
     };
     extraUsers = { root = { shell = pkgs.zsh; }; };
