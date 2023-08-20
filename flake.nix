@@ -19,6 +19,7 @@
     with inputs;
     let
       system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
       nixUserFlake = host:
         nixpkgs.lib.nixosSystem {
           inherit system;
@@ -44,6 +45,6 @@
         (builtins.attrNames (builtins.readDir ./hosts)));
 
       devShells.${system}.default =
-        import ./shell.nix;
+        import ./shell.nix { inherit pkgs; };
     };
 }
