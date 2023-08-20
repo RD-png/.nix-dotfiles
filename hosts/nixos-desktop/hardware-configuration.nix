@@ -1,14 +1,27 @@
 { config, lib, pkgs, modulesPath, ... }: {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = [ "kvm-amd" ];
+    loader = {
+      grub = {
+        enable = true;
+        device = "/dev/sda";
+        useOSProber = true;
+      };
+    };
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+      kernelModules = [ "amdgpu" ];
+    };
+  };
 
   hardware = {
     cpu.amd.updateMicrocode = true;
+    bluetooth = {
+      enable = true;
+    };
   };
 
   fileSystems."/" = {
