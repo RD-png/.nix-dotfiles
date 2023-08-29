@@ -42,6 +42,7 @@
     qbittorrent
     mpv
     mullvad-vpn
+    strawberry
 
     ## Programming
     texlive.combined.scheme-medium

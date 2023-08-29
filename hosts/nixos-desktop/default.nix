@@ -32,5 +32,9 @@
         };
       };
     };
+
+    xserver = {
+      videoDrivers = [ "amdgpu" ];
+    };
   };
 }
