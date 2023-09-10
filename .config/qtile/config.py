@@ -39,6 +39,7 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = "alacritty"
 
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -51,6 +52,7 @@ keys = [
     Key([mod], "comma", lazy.prev_screen()),
     # Window Control
     Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod, "shift"], "f", lazy.window.toggle_floating()),
     Key([mod], "space", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
     # Window Arrangement
@@ -63,6 +65,7 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.grow_down()),
     Key([mod, "control"], "k", lazy.layout.grow_up()),
     Key([mod], "t", lazy.layout.normalize()),
+    Key([mod, "control"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
     # Spawn Programs
     # Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
     Key([mod], "d", lazy.spawn("rofi -show drun")),

@@ -19,6 +19,7 @@
     discord
     inkscape
     cachix
+    chatterino2
     brave
     tmux
     libvterm
