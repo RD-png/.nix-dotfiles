@@ -92,9 +92,16 @@
       EDITOR = "emacs";
     };
     shellAliases = {
+      ls = "ls --group-directories-first --color -l";
+      lsd = "ls -d */";
+      lsa = "ls -a";
+      cp = "cp -i";
+      mv = "mv -i";
+      rm = "rm -i";
+      cdd = "fzf-cd-widget -e --tiebreak=length";
+      cdf = "fzf-file-widget -e";
       nixRF = "sudo nixos-rebuild switch --flake $HOME#$(uname -n)";
-      ls = "exa --long --header --icons --group-directories-first";
-      grep = "grep --color=auto";
+      grep = "rg";
       diff = "diff --color=auto";
       e = "emacsclient -n -c";
       startx = "startx $XINITRC";

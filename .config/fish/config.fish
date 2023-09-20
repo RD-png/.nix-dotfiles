@@ -104,14 +104,5 @@ bind \ct transpose-chars
 bind \et transpose-words
 bind \ec upcase-word
 
-# Alias
-alias lsd="ls -d .*/ */"
-alias lsa="ls -a"
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
-alias cdd='fzf-cd-widget -e --tiebreak=length'
-alias cdf='fzf-file-widget -e'
-
 # bind \t accept-autosuggestion
 # bind \t\t complete

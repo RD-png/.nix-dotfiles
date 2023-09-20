@@ -71,7 +71,6 @@
     pavucontrol
     neofetch
     openssh
-    exa
     picom-jonaburg
     sshfs
     unzip
