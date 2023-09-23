@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     xmobar
     haskellPackages.xmonad

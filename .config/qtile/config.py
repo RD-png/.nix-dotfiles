@@ -46,12 +46,12 @@ keys = [
     # Window Movement
     Key([mod], "h", lazy.layout.left()),
     Key([mod], "l", lazy.layout.right()),
-    Key([mod], "j", lazy.layout.next()),
-    Key([mod], "k", lazy.layout.previous()),
+    Key([mod], "j", lazy.group.next_window()),
+    Key([mod], "k", lazy.group.prev_window()),
     Key([mod], "o", lazy.next_screen()),
-    Key([mod], "comma", lazy.prev_screen()),
     # Window Control
     Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "b", lazy.hide_show_bar(), desc="Hides the bar"),
     Key([mod, "shift"], "f", lazy.window.toggle_floating()),
     Key([mod], "space", lazy.next_layout()),
     Key([mod], "q", lazy.window.kill()),
@@ -120,15 +120,15 @@ for i in groups:
 
     layout_theme = {
         "border_width": 5,
-        "margin": 6,
+        "margin": 0,
         "border_focus": "#005577",
         "border_normal": "#444444",
     }
 
 layouts = [
     layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
-    layout.Max(),
-    layout.Floating(),
+    layout.Max(**layout_theme),
+    layout.Floating(**layout_theme),
 ]
 
 # Append scratchpad with dropdowns to groups
@@ -382,7 +382,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = False
-bring_front_click = False
+bring_front_click = True
 cursor_warp = False
 floating_layout = layout.Floating(
     float_rules=[

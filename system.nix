@@ -11,7 +11,6 @@
       windowManager = {
         qtile = {
           enable = true;
-          package = pkgs.stable.qtile;
         };
       };
       layout = "us";
@@ -23,12 +22,6 @@
     picom = {
       enable = true;
       backend = "glx";
-      # settings = {
-      #   blur = {
-      #     method = "kawase";
-      #     strength = 75;
-      #   };
-      # };
     };
 
     blueman = {
@@ -106,7 +99,13 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [ source-code-pro fantasque-sans-mono font-awesome times-newer-roman fira-code ];
+    packages = with pkgs; [
+      source-code-pro
+      fantasque-sans-mono
+      font-awesome
+      times-newer-roman
+      fira-code
+    ];
   };
 
   programs = {
