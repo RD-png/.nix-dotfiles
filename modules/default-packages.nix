@@ -7,7 +7,6 @@
     paper-icon-theme
     rofi
     feh
-    qtile
     pnmixer
     lxqt.lxqt-powermanagement
     dunst

@@ -11,7 +11,6 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     # Overlays
-    emacs.url = "github:nix-community/emacs-overlay";
     nur.url = "github:nix-community/NUR";
   };
 
@@ -19,12 +18,21 @@
     with inputs;
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      mkPkgs = pkgs: overlays:
+        import pkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = overlays;
+        };
+      overlay-stable = final: prev: {
+        stable = mkPkgs nixpkgs-stable [ ];
+      };
+      pkgs = mkPkgs nixpkgs [ nur.overlay overlay-stable ];
 
       nixUserFlake = host:
         nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs system; };
+          specialArgs = { inherit pkgs inputs system; };
           modules = [
             host
             ./system.nix

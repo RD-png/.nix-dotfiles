@@ -1,4 +1,4 @@
-{ config, pkgs, libs, ... }: {
+{ pkgs, ... }: {
   programs = {
     man.enable = false;
     direnv = {
@@ -6,6 +6,9 @@
       nix-direnv = {
         enable = true;
       };
+    };
+    tmux = {
+      shell = "${pkgs.fish}/bin/fish";
     };
   };
 }

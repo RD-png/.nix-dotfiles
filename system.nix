@@ -1,7 +1,4 @@
-{ inputs, config, pkgs, lib, ... }: {
-
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
-
+{ pkgs, lib, ... }: {
   time.timeZone = "Europe/London";
   services = {
     xserver = {
@@ -14,6 +11,7 @@
       windowManager = {
         qtile = {
           enable = true;
+          package = pkgs.stable.qtile;
         };
       };
       layout = "us";
@@ -64,8 +62,6 @@
   security.rtkit.enable = true;
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
-
-  nixpkgs.config = { allowUnfree = true; };
 
   environment = {
     sessionVariables = {
