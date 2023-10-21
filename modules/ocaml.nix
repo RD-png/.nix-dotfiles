@@ -4,6 +4,7 @@
     dune_3
     ocamlformat
     ocamlPackages.utop
+    ocamlPackages.merlin
     ocamlPackages.odoc
     ocamlPackages.ounit2
     ocamlPackages.qcheck
