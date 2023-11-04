@@ -46,9 +46,9 @@
 
     ## Programming
     texlive.combined.scheme-medium
-    ghc
+    haskell.compiler.ghc947
+    haskellPackages.haskell-language-server
     stylish-haskell
-    haskell-language-server
     cabal-install
     nix-direnv
     direnv
