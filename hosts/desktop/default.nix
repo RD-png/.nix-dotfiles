@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "nixos-desktop";
+  networking.hostName = "desktop";
 
   services = {
     autorandr = {
