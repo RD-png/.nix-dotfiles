@@ -28,12 +28,6 @@
     };
   };
 
-##  nixpkgs.lib.nixosSystemm {
-##    modules = [
-##      nixos-hardware.nixosModules.framework-13-inch-7040-amd
-##    ];
-##  };
-
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/8a7aef74-d494-4ed6-b6a2-7923f4d32c28";
       fsType = "ext4";
