@@ -9,9 +9,8 @@ CustomCommand=
 VolMuteKey=121
 VolUpKey=123
 VolDownKey=122
-AlsaCard=HDA Intel PCH
 NormalizeVolume=true
-SystemTheme=true
+# SystemTheme=true
 DrawVolMeter=false
 VolMeterPos=0
 VolMeterColor=0.90980392156900003;0.43137254902;0.43137254902;
@@ -26,9 +25,3 @@ MouseNotifications=false
 PopupNotifications=false
 ExternalNotifications=false
 NotificationTimeout=1500
-
-[(default)]
-Channel=Master
-
-[HDA Intel PCH]
-Channel=Master
