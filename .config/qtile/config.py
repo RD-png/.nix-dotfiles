@@ -68,8 +68,8 @@ keys = [
     Key([mod, "control"], "f", lazy.window.toggle_floating(), desc='Toggle floating'),
     # Spawn Programs
     # Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
-    Key([mod], "d", lazy.spawn("rofi -show drun -dpi 0")),
-    Key([mod], "s", lazy.spawn("rofi -show window -dpi 0")),
+    Key([mod], "d", lazy.spawn("rofi -show drun")),
+    Key([mod], "s", lazy.spawn("rofi -show window")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --allow-boost -i 10")),
@@ -121,7 +121,7 @@ for i in groups:
     layout_theme = {
         "border_width": 5,
         "margin": 0,
-        "border_focus": "#ddadaf",
+        "border_focus": "#005577",
         "border_normal": "#444444",
     }
 
@@ -152,8 +152,8 @@ keys.extend(
 )
 
 widget_defaults = dict(
-    font="fantasquesansmono",
-    fontsize=25,
+    font="monospace",
+    fontsize=12,
     padding=2,
 )
 extension_defaults = widget_defaults.copy()
@@ -183,7 +183,7 @@ screens = [
                 widget.GroupBox(
                     active=colors[0],
                     highlight_method="line",
-                    highlight_color="#ddadaf",
+                    highlight_color="#005577",
                     padding_x=6,
                     borderwidth=0,
                     margin_x=0,
@@ -214,12 +214,11 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(
-                    padding=20,
-                    icon_size=35
+                    padding=10
                 ),
                 widget.Sep(
                     linewidth=0,
-                    padding=30,
+                    padding=10,
                     size_percent=50,
                 ),
                 widget.TextBox(
@@ -234,7 +233,7 @@ screens = [
                 ),
                 widget.Sep(
                     linewidth=0,
-                    padding=20,
+                    padding=10,
                     size_percent=50,
                 ),
                 widget.TextBox(
@@ -248,7 +247,7 @@ screens = [
                 ),
                 widget.Sep(
                     linewidth=0,
-                    padding=20,
+                    padding=10,
                     size_percent=50,
                 ),
                 widget.TextBox(
@@ -262,7 +261,7 @@ screens = [
                 ),
                 widget.Sep(
                     linewidth=0,
-                    padding=20,
+                    padding=10,
                     size_percent=50,
                 ),
                 widget.TextBox(
@@ -276,11 +275,11 @@ screens = [
                 ),
                 widget.Sep(
                     linewidth=0,
-                    padding=20,
+                    padding=10,
                     size_percent=50,
                 ),
             ],
-            size=35,
+            size=22,
         ),
     ),
     Screen(
@@ -288,7 +287,7 @@ screens = [
             [
                 widget.GroupBox(
                     highlight_method="line",
-                    highlight_color="#ddadaf",
+                    highlight_color="#005577",
                     padding_x=6,
                     borderwidth=0,
                     margin_x=0,
