@@ -9,7 +9,7 @@
       upscaleDefaultCursor = true;
       libinput = {
         touchpad = {
-          accelSpeed = "0.2";
+          accelSpeed = "0.3";
           disableWhileTyping = true;
         };
       };
