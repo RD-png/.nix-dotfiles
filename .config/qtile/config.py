@@ -121,7 +121,7 @@ for i in groups:
     layout_theme = {
         "border_width": 5,
         "margin": 0,
-        "border_focus": "#ddadaf",
+        "border_focus": "#cd5c5c",
         "border_normal": "#444444",
     }
 
@@ -183,7 +183,7 @@ screens = [
                 widget.GroupBox(
                     active=colors[0],
                     highlight_method="line",
-                    highlight_color="#ddadaf",
+                    highlight_color="#cd5c5c",
                     padding_x=6,
                     borderwidth=0,
                     margin_x=0,

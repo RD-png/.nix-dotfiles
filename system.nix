@@ -13,8 +13,10 @@
           enable = true;
         };
       };
-      layout = "us";
-      xkbOptions = "ctrl:nocaps";
+      xkb = {
+        layout = "us";
+        options = "ctrl:nocaps";
+      };
       autoRepeatDelay = 250;
       autoRepeatInterval = 25;
     };

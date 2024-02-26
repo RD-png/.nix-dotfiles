@@ -70,7 +70,7 @@
     pavucontrol
     neofetch
     openssh
-    picom-jonaburg
+    picom
     sshfs
     unzip
     htop
