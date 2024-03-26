@@ -14,5 +14,6 @@
     gnutls
     isync
     ispell
+    emacs-lsp-booster
   ];
 }
