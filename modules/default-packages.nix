@@ -43,6 +43,8 @@
     mpv
     mullvad-vpn
     strawberry
+    ntfs3g
+    exfat
 
     ## Programming
     texlive.combined.scheme-medium
@@ -54,7 +56,7 @@
     direnv
     sqlite
     nixfmt
-    nil
+    nixd
     vim
     git
     gcc
