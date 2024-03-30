@@ -104,7 +104,7 @@
       rm = "rm -i";
       cdd = "fzf-cd-widget -e --tiebreak=length";
       cdf = "fzf-file-widget -e";
-      nixRF = "sudo nixos-rebuild switch --flake $HOME#$(uname -n)";
+      nixrf = "sudo nixos-rebuild switch --flake $HOME#$(uname -n)";
       grep = "rg";
       diff = "diff --color=auto";
       e = "emacsclient -n -c";

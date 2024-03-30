@@ -76,6 +76,11 @@ keys = [
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 10")),
     Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
     Key([], "XF86AudioMicMute", lazy.spawn("pamixer --source 47 -t")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("light -A 10")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("light -U 10")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([mod, "shift"], "p", lazy.spawn("postman")),
     Key([mod, "shift"], "e", lazy.spawn("emacs")),
     Key([mod, "shift"], "s", lazy.spawn("flameshot gui")),
@@ -154,6 +159,7 @@ keys.extend(
 widget_defaults = dict(
     font="monospace",
     fontsize=12,
+    font="fantasquesansmono",
     padding=2,
 )
 extension_defaults = widget_defaults.copy()

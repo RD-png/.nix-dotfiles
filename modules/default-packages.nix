@@ -45,6 +45,7 @@
     strawberry
     ntfs3g
     exfat
+    playerctl
 
     ## Programming
     texlive.combined.scheme-medium
