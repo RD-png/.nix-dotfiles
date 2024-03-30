@@ -4,27 +4,29 @@
 { inputs, config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-    ];
-
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-amd" ];
-    initrd.availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
     loader = {
-     efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
       grub = {
         enable = true;
         efiSupport = true;
         device = "nodev";
         useOSProber = true;
       };
+    };
+    initrd = {
+      availableKernelModules = [ "nvme" "xhci_pci" "thunderbolt" "usb_storage" "sd_mod" ];
+      kernelModules = [ "kvm-amd" ];
     };
   };
 

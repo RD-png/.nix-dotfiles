@@ -13,8 +13,10 @@
           enable = true;
         };
       };
-      layout = "us";
-      xkbOptions = "ctrl:nocaps";
+      xkb = {
+        layout = "us";
+        options = "ctrl:nocaps";
+      };
       autoRepeatDelay = 250;
       autoRepeatInterval = 25;
     };
@@ -43,6 +45,19 @@
     };
 
     mullvad-vpn = {
+      enable = true;
+    };
+
+     gvfs = {
+      enable = true;
+    };
+
+    udisks2 = {
+      enable = true;
+      mountOnMedia = true;
+    };
+
+    devmon = {
       enable = true;
     };
   };

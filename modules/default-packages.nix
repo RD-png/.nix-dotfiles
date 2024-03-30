@@ -43,6 +43,8 @@
     mpv
     mullvad-vpn
     strawberry
+    ntfs3g
+    exfat
 
     ## Programming
     texlive.combined.scheme-medium
@@ -54,7 +56,7 @@
     direnv
     sqlite
     nixfmt
-    rnix-lsp
+    nixd
     vim
     git
     gcc
@@ -70,7 +72,7 @@
     pavucontrol
     neofetch
     openssh
-    picom-jonaburg
+    picom
     sshfs
     unzip
     htop
