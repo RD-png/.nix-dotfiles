@@ -67,6 +67,7 @@
     gnumake
     rebar3
     niv
+    guile
 
     ## Utils
     ripgrep

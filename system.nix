@@ -5,7 +5,7 @@
       enable = true;
       exportConfiguration = true;
       displayManager = {
-        defaultSession = "none+qtile";
+        defaultSession = "qtile";
         lightdm.enable = true;
       };
       windowManager = {
