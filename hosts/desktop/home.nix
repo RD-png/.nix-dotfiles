@@ -6,7 +6,5 @@
 
     # Programming
     mitscheme
-    scheme48
-    racket
   ];
 }
