@@ -131,7 +131,7 @@ for i in groups:
     }
 
 layouts = [
-    layout.Columns(**layout_theme, border_on_single=True, insert_position=1),
+    layout.Columns(**layout_theme, border_on_single=False, insert_position=1),
     layout.Max(**layout_theme),
     layout.Floating(**layout_theme),
 ]

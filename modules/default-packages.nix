@@ -68,6 +68,9 @@
     rebar3
     niv
     guile
+    clojure
+    clojure-lsp
+    jdk
 
     ## Utils
     ripgrep

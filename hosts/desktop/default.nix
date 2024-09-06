@@ -37,5 +37,11 @@
     xserver = {
       videoDrivers = [ "amdgpu" ];
     };
+
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+      };
+    };
   };
 }
