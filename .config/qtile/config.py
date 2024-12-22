@@ -70,6 +70,8 @@ keys = [
     # Key([mod], "d", lazy.spawn("dmenu_run -fn 'Misc Termsyn.Icons:size=15.0'")),
     Key([mod], "d", lazy.spawn("rofi -show drun - dpi 0")),
     Key([mod], "s", lazy.spawn("rofi -show window - dpi 0")),
+    Key([mod], "d", lazy.spawn("rofi -show drun -dpi 0")),
+    Key([mod], "s", lazy.spawn("rofi -show window -dpi 0")),
     Key([mod], "w", lazy.spawn("brave")),
     Key([mod, "shift"], "d", lazy.spawn("discord")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --allow-boost -i 10")),
