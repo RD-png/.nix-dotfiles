@@ -1,4 +1,4 @@
-import = ["/home/ryan/.config/alacritty/modus-active.toml"]
+general.import = ["/home/ryan/.config/alacritty/modus-active.toml"]
 
 [env]
 TERM = "xterm-256color"
