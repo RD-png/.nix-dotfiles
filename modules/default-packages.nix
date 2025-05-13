@@ -56,13 +56,13 @@
     nix-direnv
     direnv
     sqlite
-    nixfmt
+    nixfmt-classic
     nixd
     vim
     git
     gcc
     erlang
-    erlang-ls
+    erlang-language-platform
     elvis-erlang
     gnumake
     rebar3

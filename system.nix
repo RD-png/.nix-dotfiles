@@ -1,11 +1,13 @@
 { pkgs, lib, ... }: {
   time.timeZone = "Europe/London";
   services = {
+    displayManager = {
+      defaultSession = "qtile";
+    };
     xserver = {
       enable = true;
       exportConfiguration = true;
       displayManager = {
-        defaultSession = "qtile";
         lightdm.enable = true;
       };
       windowManager = {

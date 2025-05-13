@@ -3,7 +3,7 @@
     nixos.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -27,16 +27,20 @@
       overlay-stable = final: prev: {
         stable = mkPkgs nixpkgs-stable [ ];
       };
-      pkgs = mkPkgs nixpkgs [ nur.overlay overlay-stable ];
+      pkgs = mkPkgs nixpkgs [ nur.overlays.default overlay-stable ];
 
       nixUserFlake = host:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit pkgs inputs system; };
           modules = [
+            {
+              nixpkgs.pkgs = pkgs;
+            }
             host
             ./system.nix
             ./home.nix
+
           ];
         };
 
